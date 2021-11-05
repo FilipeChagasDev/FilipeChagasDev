@@ -15,7 +15,7 @@
 * Hobbies: **music** and **phonographic production**
 * Current main programming languages: **Python**, **C** and **C++**
 * Programming languages I've also studied: **JavaScript**, **C#**, **Matlab**, **Java**, **VB.NET**
-* Other languages I use or have studied: **HTML**, **CSS**, **LaTeX**
+* Other languages I use or have studied: **HTML**, **CSS**, **LaTeX**, **SQL**
 * Machine learning and data science technologies: **Python**, **TensorFlow**, **Scikit-Learn**, **Pandas**, **NumPy**, **SciPy**
 * Embedded systems technologies: **STM32**, **STM32CubeMX**, **ESP8266**, **ESP32**, **ESP-IDF** and **Raspberry Pi**
 * Quantum computing technologies: **IBM Quantum Composer** and **Qiskit**
