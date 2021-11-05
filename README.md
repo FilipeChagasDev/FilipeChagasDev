@@ -5,7 +5,7 @@
 <div> 
   <a href = "mailto:filipe.ferraz0@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
   <a href="https://www.linkedin.com/in/filipe-chagas-16a9371b8" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
-  <a href="https://medium.com/@filipe.chagas" target="_blank"><img src="Medium.png" target="_blank"></a> 
+  <a href="https://medium.com/@filipe.chagas" target="_blank"><img height=28 src="medium.svg" target="_blank"></a> 
 </div>
 
 ### About me
@@ -24,6 +24,7 @@
 * Database technologies: **PostgreSQL**
 * Operating systems: **Debian** and **Ubuntu**
 * Currently researching on: **non-intrusive load monitoring** and **electric systems**
+* Creator and writer of the Medium publication [CQ em Português](https://medium.com/cq-em-portugu%C3%AAs), a publication dedicated to the dissemination of quantum computing in Portuguese. 
 
 ### Contact
 
