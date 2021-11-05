@@ -1,11 +1,13 @@
 
 ## Hi, I'm Filipe Chagas Ferraz
-
-
 <div> 
   <a href = "mailto:filipe.ferraz0@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
   <a href="https://www.linkedin.com/in/filipe-chagas-16a9371b8" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
   <a href="https://medium.com/@filipe.chagas" target="_blank"><img height=28 src="medium.svg" target="_blank"></a> 
+</div>
+
+<div>
+  <a href="https://medium.com/cq-em-portugu%C3%AAs" target="_blank"><img height=28 src="cq-em-portugues.svg" target="_blank"></a> 
   <a href="https://fgl.docsforge.com/" target="_blank"><img height=28 src="fgl.svg" target="_blank"></a> 
 </div>
 
