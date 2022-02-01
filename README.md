@@ -10,7 +10,7 @@
 
 * Brazilian
 * Eighth period of **computer engineering** at UFMT 
-* Areas: **AI**, **data science** and **embedded systems**, **electronics**, **audio** and **quantum computing** 
+* Areas: **AI**, **data science**, **embedded systems**, **electronics**, **audio** and **quantum computing** 
 * Hobbies: **music** and **phonographic production**
 * Current main programming languages: **Python**, **C** and **C++**
 * Programming languages I've also studied: **JavaScript**, **C#**, **Matlab**, **Java**, **VB.NET**
