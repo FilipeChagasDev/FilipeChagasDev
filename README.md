@@ -10,8 +10,7 @@
 
 * Brazilian
 * Eighth period of **computer engineering** at UFMT 
-* Main areas: **AI**, **data science** and **embedded systems**
-* Other areas: **electronics**, **audio processing**, **image processing** and **quantum computing** 
+* Areas: **AI**, **data science** and **embedded systems**, **electronics**, **audio** and **quantum computing** 
 * Hobbies: **music** and **phonographic production**
 * Current main programming languages: **Python**, **C** and **C++**
 * Programming languages I've also studied: **JavaScript**, **C#**, **Matlab**, **Java**, **VB.NET**
@@ -19,6 +18,7 @@
 * Machine learning and data science technologies: **Python**, **TensorFlow**, **Scikit-Learn**, **Pandas**, **NumPy**, **SciPy**
 * Embedded systems technologies: **STM32**, **STM32CubeMX**, **ESP8266**, **ESP32**, **ESP-IDF** and **Raspberry Pi**
 * Quantum computing technologies: **IBM Quantum Composer** and **Qiskit**
+* Audio technologies: **JUCE**
 * Database technologies: **PostgreSQL**
 * Operating systems: **Debian** and **Ubuntu**
 * Currently researching on: **non-intrusive load monitoring** and **electric systems**
