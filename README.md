@@ -12,16 +12,15 @@
 * Eighth period of **computer engineering** at UFMT 
 * Areas: **AI**, **data science**, **embedded systems**, **electronics**, **audio** and **quantum computing** 
 * Hobbies: **music** and **phonographic production**
-* Current main programming languages: **Python**, **C** and **C++**
-* Programming languages I've also studied: **JavaScript**, **C#**, **Matlab**, **Java**, **VB.NET**
+* Current main programming languages: **Python**, **C**, **C++** and **C#**
+* Programming languages I've also studied: **JavaScript**, **Matlab**, **Java**, **VB.NET**
 * Other languages I use or have studied: **HTML**, **CSS**, **LaTeX**, **SQL**
 * Machine learning and data science technologies: **Python**, **TensorFlow**, **Scikit-Learn**, **Pandas**, **NumPy**, **SciPy**
 * Embedded systems technologies: **STM32**, **STM32CubeMX**, **ESP8266**, **ESP32**, **ESP-IDF** and **Raspberry Pi**
 * Quantum computing technologies: **IBM Quantum Composer** and **Qiskit**
 * Audio technologies: **JUCE**
-* Database technologies: **PostgreSQL**
 * Operating systems: **Debian** and **Ubuntu**
-* Currently researching on: **non-intrusive load monitoring** and **electric systems**
+* Currently researching on: **non-intrusive load monitoring**, **electric systems** and **quantum computing**
 * Creator and writer of the Medium publication [CQ em Português](https://medium.com/cq-em-portugu%C3%AAs), a publication dedicated to the dissemination of quantum computing in Portuguese. 
 
 ### Contact
