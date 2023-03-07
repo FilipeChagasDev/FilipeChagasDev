@@ -8,8 +8,8 @@
 * **Quantum Computing**, **Artificial Intelligence**, **Embedded Systems** and **Signal Processing** 
 
 ### Read my articles
-* [ORCID: 0000-0003-4130-3801](https://orcid.org/0000-0003-4130-3801) (My ORCID page with research papers)
 * [Medium: @filipe.chagas](https://medium.com/@filipe.chagas) (My Medium profile)
+<!-- * [ORCID: 0000-0003-4130-3801](https://orcid.org/0000-0003-4130-3801) (My ORCID page with research papers) -->
 
 ### Contact
 
