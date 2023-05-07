@@ -9,6 +9,7 @@
 
 ### Read my articles
 * [Medium: @filipe.chagas](https://medium.com/@filipe.chagas) (My Medium profile)
+* [Ferraz, F.C., Monteiro, R.V.A., Teixeira, R.F.S. et al. A Siamese CNN + KNN-Based Classification Framework for Non-intrusive Load Monitoring. J Control Autom Electr Syst (2023). https://doi.org/10.1007/s40313-023-00999-2](https://link.springer.com/article/10.1007/s40313-023-00999-2)
 <!-- * [ORCID: 0000-0003-4130-3801](https://orcid.org/0000-0003-4130-3801) (My ORCID page with research papers) -->
 
 ### Contact
