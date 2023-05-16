@@ -16,6 +16,5 @@
 
 * Email: 
   * filipe.ferraz0@gmail.com (main personal email)
-  * filipe.ferraz@sou.ufmt.br (UFMT institutional email)
   
 * LinkedIn: https://www.linkedin.com/in/filipe-chagas-16a9371b8
