@@ -14,7 +14,6 @@
 
 ### Contact
 
-* Email: 
-  * filipe.ferraz0@gmail.com (main personal email)
+* Email: filipe.ferraz0@gmail.com (main personal email)
   
 * LinkedIn: https://www.linkedin.com/in/filipe-chagas-16a9371b8
