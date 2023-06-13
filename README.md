@@ -5,7 +5,7 @@
 
 * Brazilian
 * **Computer Engineering** at **Federal University of Mato Grosso (UFMT)** 
-* **Artificial Intelligence**, **Quantum Computing**, **Embedded Systems** and **Signal Processing** 
+* **Quantum Computing**, **Artificial Intelligence**, **Embedded Systems** and **Signal Processing** 
 
 ### Read my articles
 * [Medium: @filipe.chagas](https://medium.com/@filipe.chagas) (My Medium profile)
