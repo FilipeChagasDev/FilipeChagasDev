@@ -9,7 +9,7 @@
 ### Links and contact
 
 * Email: filipe.ferraz0@gmail.com (main personal email)
-* LinkedIn: https://www.linkedin.com/in/filipe-chagas-16a9371b8
+* LinkedIn: https://www.linkedin.com/in/filipe-chagas-ferraz-16a9371b8
 * Lattes CV: http://lattes.cnpq.br/7233761093126361
   
 ### Articles
