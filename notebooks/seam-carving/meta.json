@@ -1,0 +1,14 @@
+{
+    "title": "Seam Carving implementation tutorial",
+    "abstract": "Seam Carving is an image processing algorithm that resizes images by removing or inserting paths of pixels ('seams') with the least visual importance, preserving key content while reducing size. Ideal for smart cropping and aspect ratio adjustments.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/output/seam-carving-filipe.gif?raw=true",
+    "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-filipe.ipynb",
+    "contenttype": "Python Notebook",
+    "contenttopic": "Image Processing",
+    "date": {
+        "day": 2,
+        "month": 11,
+        "year": 2024
+    },
+    "relevance": 0
+}
