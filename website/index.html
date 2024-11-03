@@ -11,7 +11,7 @@ Filipe Chagas Ferraz Website
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog Template">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="favicon.svg"> 
     
     <!-- FontAwesome JS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -62,7 +62,7 @@ Filipe Chagas Ferraz Website
     <div class="main-wrapper">
 
 		
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<!--<a class="navbar-brand" href="#">Contents</a>-->
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
 		aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,15 +114,18 @@ Filipe Chagas Ferraz Website
 <section class="blog-list px-3 py-5 p-md-5" id="notebooks">
 	<div class="container" id="posts">
 		
-		<div class="item mb-5 post" id="post_0" contenttype="Python Notebook"
+		<div class="item mb-5 post" contenttype="Python Notebook"
 			contenttopic="Image Processing">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/output/seam-carving-filipe.gif?raw=true" alt="image">
 				<div class="media-body">
-					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-filipe.ipynb">Seam Carving</a></h3>
-					<div class="meta mb-1"><span>Python Notebook</span><span class="time">Image
-							Processing</span><span><a>Nov 2024</a></span></div>
-					<div class="intro">Seam Carving is an algorithm that reduces the width or height of an image, avoiding distortions in its content. This animation shows the process of reducing the width of an image with Seam Carving: for each pixel of width to be limited, a "minimum energy" vertical path (where there is less variation in brightness) is found and its pixels are removed. In this implementation, the "energy" of the image is calculated as the magnitude of the gradient.</div>
+					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-filipe.ipynb">Seam Carving implementation tutorial</a></h3>
+					<div class="meta mb-1">
+						<span>Python Notebook</span>
+						<span class="time">Image Processing</span>
+						<span>02-Nov-2024</span>
+					</div>
+					<div class="intro">Seam Carving is an image processing algorithm that resizes images by removing or inserting paths of pixels ('seams') with the least visual importance, preserving key content while reducing size. Ideal for smart cropping and aspect ratio adjustments.</div>
 					<a class="more-link" target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-filipe.ipynb">Read more &rarr;</a>
 				</div><!--//media-body-->
 			</div><!--//media-->

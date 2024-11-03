@@ -57,16 +57,19 @@ Filipe Chagas Ferraz Website
 <section class="blog-list px-3 py-5 p-md-5" id="notebooks">
 	<div class="container" id="posts">
 		{% for post in posts %}
-		<div class="item mb-5 post" id="post_{{post.index}}" contenttype="{{post.content_type}}"
-			contenttopic="{{post.content_topic}}">
+		<div class="item mb-5 post" contenttype="{{post.contenttype}}"
+			contenttopic="{{post.contenttopic}}">
 			<div class="media">
-				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{post.pic}}" alt="image">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{post.thumbnail}}" alt="image">
 				<div class="media-body">
-					<h3 class="title mb-1"><a target="_blank" href="{{post.url}}">{{post.title}}</a></h3>
-					<div class="meta mb-1"><span>Python Notebook</span><span class="time">Image
-							Processing</span><span><a>Nov 2024</a></span></div>
-					<div class="intro">{{post.intro}}</div>
-					<a class="more-link" target="_blank" href="{{post.url}}">Read more &rarr;</a>
+					<h3 class="title mb-1"><a target="_blank" href="{{post.href}}">{{post.title}}</a></h3>
+					<div class="meta mb-1">
+						<span>{{post.contenttype}}</span>
+						<span class="time">{{post.contenttopic}}</span>
+						<span>{{post.date_str}}</span>
+					</div>
+					<div class="intro">{{post.abstract}}</div>
+					<a class="more-link" target="_blank" href="{{post.href}}">Read more &rarr;</a>
 				</div><!--//media-body-->
 			</div><!--//media-->
 		</div><!--//item-->
