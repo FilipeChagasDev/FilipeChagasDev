@@ -25,7 +25,8 @@ if __name__ == '__main__':
     posts = read_notebooks_metadata()
     
     posts.sort(
-            key=lambda meta: (meta['relevance'], datetime(meta['date']['year'], meta['date']['month'], meta['date']['day']))
+            key=lambda meta: (meta['relevance'], datetime(meta['date']['year'], meta['date']['month'], meta['date']['day'])),
+            reverse=True
         )
     
     for meta in posts:
