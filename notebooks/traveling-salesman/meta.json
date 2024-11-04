@@ -1,0 +1,14 @@
+{
+    "title": "Solving the Traveling Salesman Problem with Simulated Annealing",
+    "abstract": "This notebook addresses the Traveling Salesman Problem (TSP), which seeks the shortest possible route for a salesman to visit a set of cities and return to the starting point. It uses the Simulated Annealing algorithm, a probabilistic technique inspired by the annealing process in metallurgy, to explore potential solutions and efficiently find a near-optimal route.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true",
+    "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/traveling-salesman-sa-tutorial.ipynb",
+    "contenttype": "Python Notebook",
+    "contenttopic": "Operations Research",
+    "date": {
+        "day": 3,
+        "month": 11,
+        "year": 2024
+    },
+    "relevance": 0
+}
