@@ -1,0 +1,14 @@
+{
+    "title": "Solving the Traveling Salesman Problem with Ant Colony Optimization",
+    "abstract": "Ant Colony Optimization (ACO) is a metaheuristic algorithm that performs well in solving path optimization problems, such as the Traveling Salesman Problem (TSP), by simulating the behavior of ants searching for food. In this notebook, ACO is implemented and explored as a TSP solver.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/tsp-aco-thumbnail.gif?raw=true",
+    "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/ant-colony-tutorial.ipynb",
+    "contenttype": "Python Notebook",
+    "contenttopic": "Operations Research",
+    "date": {
+        "day": 9,
+        "month": 11,
+        "year": 2024
+    },
+    "relevance": 0
+}
