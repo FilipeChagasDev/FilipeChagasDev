@@ -1,0 +1,14 @@
+{
+    "title": "SAMSA",
+    "abstract": "SAMSA is an educational and non-commercial app that can be used to demonstrate the Traveling Salesman Problem (TSP) and its solution process using the Ant Colony Optimization (ACO) metaheuristic algorithm. In this app, the user can input or generate a set of entry points, configure the ACO parameters, and the app will handle finding and presenting the solution to the TSP instance. Once the solution is found, it is possible to visualize the path taken by the traveling salesman, as well as the evolution of the ACO states throughout the optimization epochs.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/plots/seam-carving-thumbnail.gif?raw=true",
+    "href": "https://samsa-rcp8.onrender.com",
+    "contenttype": "Web App",
+    "contenttopic": "Operations Reseach",
+    "date": {
+        "day": 24,
+        "month": 11,
+        "year": 2024
+    },
+    "relevance": 0
+}
