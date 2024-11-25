@@ -9059,6 +9059,9 @@ h1, h2, h3, h4, h5, h6 {
 .profile-section .profile-image {
   max-width: 160px;
 }
+.profile-section .profile-image-small {
+  max-width: 80px;
+}
 .profile-section .bio {
   font-size: 0.875rem;
 }
@@ -9133,6 +9136,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .blog-list .item .post-thumb {
   max-width: 110px;
+  border-radius: 2px;
+}
+.blog-list .item .post-thumb-2 {
+  max-width: 90%;
   border-radius: 2px;
 }
 .blog-list .item .intro {
