@@ -19,22 +19,31 @@ Filipe Chagas Ferraz Website
     
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
-
 </head> 
 
 <body>
-    <header class="header text-center">	    
-	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Filipe Chagas Ferraz</a></h1>
-        
-	    <nav class="navbar navbar-expand-lg navbar-dark" >
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
+    <header class="header text-center">
+		<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Filipe Chagas Ferraz</a></h1>
+		</div>
 
-			<div id="navigation" class="collapse navbar-collapse flex-column" >
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>-->
+
+			<!--<div id="navigation" class="collapse navbar-collapse flex-column">-->
+			<div id="navigation" class="navbar-collapse flex-column">
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
-					
+					<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+					</div>
+					<div class="d-block d-md-none">
+						<div class="align-items-center">
+							<h6 class="mb-0 pt-lg-4" style="color: white;">Filipe Chagas Ferraz</h2>
+							<img class="profile-image-small m-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >	
+						</div>
+					</div>
 					<div class="bio mb-3">
 						<p>Tech Teacher | B.S in Computer Engineering</p>
 						<p class="font-weight-lighter">
@@ -117,13 +126,16 @@ Filipe Chagas Ferraz Website
 		<div class="item mb-5 post" contenttype="Web App"
 			contenttopic="Operations Reseach">
 			<div class="media">
-				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/samsa/thumbnail.png?raw=true" alt="image">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/samsa/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://samsa-rcp8.onrender.com">SAMSA</a></h3>
 					<div class="meta mb-1">
 						<span>Web App</span>
 						<span class="time">Operations Reseach</span>
 						<span>24-Nov-2024</span>
+					</div>
+					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
+						<img class="img-fluid post-thumb-2 d-block d-md-none" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/samsa/thumbnail.png?raw=true" alt="image"> <!--Visible only in smartphones -->
 					</div>
 					<div class="intro">SAMSA is an educational and non-commercial app that can be used to demonstrate the Traveling Salesman Problem (TSP) and its solution process using the Ant Colony Optimization (ACO) metaheuristic algorithm. In this app, the user can input or generate a set of entry points, configure the ACO parameters, and the app will handle finding and presenting the solution to the TSP instance. Once the solution is found, it is possible to visualize the path taken by the traveling salesman, as well as the evolution of the ACO states throughout the optimization epochs.</div>
 					<a class="more-link" target="_blank" href="https://samsa-rcp8.onrender.com">Read more &rarr;</a>
@@ -134,13 +146,16 @@ Filipe Chagas Ferraz Website
 		<div class="item mb-5 post" contenttype="Python Notebook"
 			contenttopic="Operations Research">
 			<div class="media">
-				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/tsp-aco-thumbnail.gif?raw=true" alt="image">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/tsp-aco-thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/ant-colony-tutorial.ipynb">Solving the Traveling Salesman Problem with Ant Colony Optimization</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
 						<span class="time">Operations Research</span>
 						<span>09-Nov-2024</span>
+					</div>
+					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
+						<img class="img-fluid post-thumb-2 d-block d-md-none" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/tsp-aco-thumbnail.gif?raw=true" alt="image"> <!--Visible only in smartphones -->
 					</div>
 					<div class="intro">Ant Colony Optimization (ACO) is a metaheuristic algorithm that performs well in solving path optimization problems, such as the Traveling Salesman Problem (TSP), by simulating the behavior of ants searching for food. In this notebook, ACO is implemented and explored as a TSP solver.</div>
 					<a class="more-link" target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/ant-colony-tutorial.ipynb">Read more &rarr;</a>
@@ -151,13 +166,16 @@ Filipe Chagas Ferraz Website
 		<div class="item mb-5 post" contenttype="Python Notebook"
 			contenttopic="Operations Research">
 			<div class="media">
-				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true" alt="image">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/traveling-salesman-sa-tutorial.ipynb">Solving the Traveling Salesman Problem with Simulated Annealing</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
 						<span class="time">Operations Research</span>
 						<span>03-Nov-2024</span>
+					</div>
+					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
+						<img class="img-fluid post-thumb-2 d-block d-md-none" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true" alt="image"> <!--Visible only in smartphones -->
 					</div>
 					<div class="intro">This notebook addresses the Traveling Salesman Problem (TSP), which seeks the shortest possible route for a salesman to visit a set of cities and return to the starting point. It uses the Simulated Annealing algorithm, a probabilistic technique inspired by the annealing process in metallurgy, to explore potential solutions and efficiently find a near-optimal route.</div>
 					<a class="more-link" target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/traveling-salesman-sa-tutorial.ipynb">Read more &rarr;</a>
@@ -168,13 +186,16 @@ Filipe Chagas Ferraz Website
 		<div class="item mb-5 post" contenttype="Python Notebook"
 			contenttopic="Image Processing">
 			<div class="media">
-				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/plots/seam-carving-thumbnail.gif?raw=true" alt="image">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/plots/seam-carving-thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-tutorial.ipynb">Smart image cropping with Seam Carving (tutorial)</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
 						<span class="time">Image Processing</span>
 						<span>02-Nov-2024</span>
+					</div>
+					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
+						<img class="img-fluid post-thumb-2 d-block d-md-none" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/plots/seam-carving-thumbnail.gif?raw=true" alt="image"> <!--Visible only in smartphones -->
 					</div>
 					<div class="intro">Seam Carving is an image processing algorithm that resizes images by removing or inserting paths of pixels ('seams') with the least visual importance, preserving key content while reducing size. Ideal for smart cropping and aspect ratio adjustments.</div>
 					<a class="more-link" target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-tutorial.ipynb">Read more &rarr;</a>

@@ -17,22 +17,31 @@
     
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
-
 </head> 
 
 <body>
-    <header class="header text-center">	    
-	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Filipe Chagas Ferraz</a></h1>
-        
-	    <nav class="navbar navbar-expand-lg navbar-dark" >
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
+    <header class="header text-center">
+		<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Filipe Chagas Ferraz</a></h1>
+		</div>
 
-			<div id="navigation" class="collapse navbar-collapse flex-column" >
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>-->
+
+			<!--<div id="navigation" class="collapse navbar-collapse flex-column">-->
+			<div id="navigation" class="navbar-collapse flex-column">
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
-					
+					<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+					</div>
+					<div class="d-block d-md-none">
+						<div class="align-items-center">
+							<h6 class="mb-0 pt-lg-4" style="color: white;">Filipe Chagas Ferraz</h2>
+							<img class="profile-image-small m-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >	
+						</div>
+					</div>
 					<div class="bio mb-3">
 						<p>Tech Teacher | B.S in Computer Engineering</p>
 						<p class="font-weight-lighter">
