@@ -2,7 +2,7 @@
     "title": "Remembering handwritten digits with a Hopfield Network",
     "abstract": "Hopfield Networks are a type of recurrent neural network that function as associative memory systems, with the key ability to store stable patterns that can be retrieved from partial or noisy inputs. In this notebook, a Hopfield Network is trained to remember handwritten digits (MNIST dataset).",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/hopfield-network/hopfield_network_thumbnail.gif?raw=true",
-    "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/hopfield-network/hopfield_network_filipe.ipynb",
+    "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/hopfield-network/hopfield_network_filipe_2.ipynb",
     "contenttype": "Python Notebook",
     "contenttopic": "Machine Learning",
     "date": {
