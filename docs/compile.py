@@ -32,6 +32,19 @@ def read_apps_metadata():
     return notebooks_meta_list
 
 
+def read_papers_metadata():
+    papers_dir = os.path.join(root, '..', 'papers')
+    papers_meta_list = []
+
+    for paper_dir in os.listdir(papers_dir):
+        meta_fn = os.path.join(papers_dir, paper_dir, 'meta.json')
+        if os.path.exists(meta_fn):
+            with open(meta_fn, 'r') as f:
+                papers_meta_list.append(json.load(f))
+
+    return papers_meta_list
+
+
 if __name__ == '__main__':
     templates_dir = os.path.join(root, 'templates')
     env = Environment(loader = FileSystemLoader(templates_dir))
@@ -39,6 +52,7 @@ if __name__ == '__main__':
     
     posts = read_notebooks_metadata()
     posts = posts + read_apps_metadata()
+    posts = posts + read_papers_metadata()
     
     posts.sort(
             key=lambda meta: (meta['relevance'], datetime(meta['date']['year'], meta['date']['month'], meta['date']['day'])),

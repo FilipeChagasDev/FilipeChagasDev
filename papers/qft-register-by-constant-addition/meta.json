@@ -1,0 +1,14 @@
+{
+    "title": "Quantum Algorithm based on Quantum Fourier Transform for Register-by-Constant Addition",
+    "abstract": "Since Shor's proposition of the method for factoring products of prime numbers using quantum computing, there has been a quest to implement efficient quantum arithmetic algorithms. These algorithms are capable of applying arithmetic operations simultaneously on large sets of values using quantum parallelism. Draper proposed an addition algorithm based on the quantum Fourier transform whose operands are two quantum registers, which I refer to as register-by-register addition. However, for cases where there is the need to be added a constant value to a target register, Draper's algorithm is more complex than necessary in terms of number of operations and number of qubits used. In this paper, I present a more efficient addition algorithm than Draper's for cases where there needs to be added just a constant to a target register.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/papers/qft-register-by-constant-addition/thumbnail.png?raw=true",
+    "href": "https://arxiv.org/abs/2207.05309",
+    "contenttype": "Paper",
+    "contenttopic": "Quantum Computing",
+    "date": {
+        "day": 12,
+        "month": 7,
+        "year": 2022
+    },
+    "relevance": 0
+}
