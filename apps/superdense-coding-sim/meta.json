@@ -1,0 +1,14 @@
+{
+    "title": "Superdense Coding Simulator",
+    "abstract": "Superdense coding is a quantum communication protocol in which Alice sends two classical bits to Bob by transmitting a single qubit, taking advantage of a previously shared entangled pair. In this app, the user chooses the bits that Alice should send, and the app displays the quantum circuit of the communication between Alice and Bob, simulates it and presents the measurement results. It is also possible to simulate the intervention of an eavesdropper (Eve) intercepting the transmitted qubit.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/superdense-coding-sim/thumbnail.png?raw=true",
+    "href": "https://superdense-coding-sim.streamlit.app/",
+    "contenttype": "Web App",
+    "contenttopic": "Quantum Computing",
+    "date": {
+        "day": 12,
+        "month": 5,
+        "year": 2026
+    },
+    "relevance": 0
+}
