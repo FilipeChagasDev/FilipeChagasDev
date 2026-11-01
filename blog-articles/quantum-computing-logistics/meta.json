@@ -1,0 +1,15 @@
+{
+    "title": "Computação Quântica na Logística",
+    "abstract": "One of the areas in which applied quantum computing seems promising is combinatorial optimization, which covers many real logistics problems. This article (in Portuguese) presents logistics problems such as vehicle routing and facility location, and quantum optimization methods that can be applied to them: Grover Adaptive Search (GAS), Quantum Annealing (QA), the Quantum Approximate Optimization Algorithm (QAOA) and Bias Field Digitalized Counterdiabatic Quantum Optimization (BF-DCQO).",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/quantum-computing-logistics/thumbnail.png?raw=true",
+    "href": "https://medium.com/cq-em-portugu%C3%AAs/computa%C3%A7%C3%A3o-qu%C3%A2ntica-na-log%C3%ADstica-7c1bb3e4065d",
+    "contenttype": "Blog Article",
+    "contentsubtype": null,
+    "contenttopic": ["Quantum Computing", "Operations Research"],
+    "date": {
+        "day": 8,
+        "month": 6,
+        "year": 2025
+    },
+    "relevance": 0
+}

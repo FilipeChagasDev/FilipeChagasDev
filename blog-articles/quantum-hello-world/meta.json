@@ -1,0 +1,15 @@
+{
+    "title": "O “Hello World” da computação quântica",
+    "abstract": "A practical introduction to quantum programming with Python and the Qiskit SDK. In this article (in Portuguese), a quantum circuit with a Hadamard gate and a Controlled-NOT gate is built with Qiskit to generate a Bell state, a state of two entangled qubits, and then simulated, with the interpretation of the measurement results.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/quantum-hello-world/thumbnail.png?raw=true",
+    "href": "https://medium.com/cq-em-portugu%C3%AAs/o-hello-world-da-computa%C3%A7%C3%A3o-qu%C3%A2ntica-d7ed4de6052c",
+    "contenttype": "Blog Article",
+    "contentsubtype": null,
+    "contenttopic": ["Quantum Computing", "Python"],
+    "date": {
+        "day": 26,
+        "month": 1,
+        "year": 2023
+    },
+    "relevance": 0
+}

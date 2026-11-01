@@ -6,7 +6,7 @@ from datetime import datetime
 root = os.path.dirname(os.path.abspath(__file__))
 
 # Directories (relative to the repository root) whose subdirectories contain a meta.json
-content_dirs = ['notebooks', 'apps', 'papers', 'academic-works']
+content_dirs = ['notebooks', 'apps', 'papers', 'academic-works', 'blog-articles']
 
 
 def read_metadata(content_dir):
