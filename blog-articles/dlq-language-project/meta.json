@@ -1,0 +1,16 @@
+{
+    "title": "DLQ — A Programming Language Project for Quantum Computing",
+    "abstract": "DLQ (Declarative Language for Quantum) is a small declarative programming language for quantum computers, developed as my undergraduate final project in Computer Engineering. This article (originally written in Portuguese) gives an overview of quantum computing, presents the conception, syntax and logic of DLQ with examples of boolean satisfiability and prime factorization solved with Grover's algorithm, describes the DLQpiler compiler (lexical analysis, parsing and quantum circuit synthesis) and discusses future improvements of the project.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/dlq-language-project/thumbnail.png?raw=true",
+    "href": "https://medium.com/cq-em-portugu%C3%AAs/dlq-um-projeto-de-linguagem-de-programa%C3%A7%C3%A3o-para-computa%C3%A7%C3%A3o-qu%C3%A2ntica-f11e96bd13ff",
+    "contenttype": "Blog Article",
+    "contentsubtype": null,
+    "contenttopic": ["Quantum Computing", "Programming Languages"],
+    "language": "Portuguese",
+    "date": {
+        "day": 16,
+        "month": 6,
+        "year": 2023
+    },
+    "relevance": 0
+}
