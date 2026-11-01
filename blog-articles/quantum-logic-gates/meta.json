@@ -1,8 +1,8 @@
 {
     "title": "Quantum Logic Gates",
-    "abstract": "Quantum logic gates are the analog of digital logic gates in quantum computing, being responsible for modifying and entangling the states of qubits. This article (originally written in Portuguese) starts from classical logic gates and circuits, introduces the linear algebra concepts behind quantum gates (unitary matrices, self-adjoint operators, etc.) and presents the main quantum logic gates, such as the Pauli gates, the rotations Rx, Ry and Rz, the Hadamard gate and controlled gates.",
+    "abstract": "Quantum logic gates are the analog of digital logic gates in quantum computing, being responsible for modifying and entangling the states of qubits. This article (in Portuguese) starts from classical logic gates and circuits, introduces the linear algebra concepts behind quantum gates (unitary matrices, self-adjoint operators, etc.) and presents the main quantum logic gates, such as the Pauli gates, the rotations Rx, Ry and Rz, the Hadamard gate and controlled gates.",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/quantum-logic-gates/thumbnail.png?raw=true",
-    "href": "https://medium-com.translate.goog/cq-em-portugu%C3%AAs/portas-l%C3%B3gicas-qu%C3%A2nticas-ed014c43a381?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en",
+    "href": "https://medium.com/cq-em-portugu%C3%AAs/portas-l%C3%B3gicas-qu%C3%A2nticas-ed014c43a381",
     "contenttype": "Blog Article",
     "contentsubtype": null,
     "contenttopic": ["Quantum Computing"],

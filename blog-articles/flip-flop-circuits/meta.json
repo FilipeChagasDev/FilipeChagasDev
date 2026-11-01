@@ -1,8 +1,8 @@
 {
     "title": "Understanding Flip-Flop Circuits",
-    "abstract": "Flip-flops are digital memory circuits, each one storing a single bit. This article (originally written in Portuguese) analyzes, part by part, the logic circuits of the four main types of flip-flops (SR, D, JK and T), starting from the SR latch, showing that their apparently complex circuits share a common and simple anatomy.",
+    "abstract": "Flip-flops are digital memory circuits, each one storing a single bit. This article (in Portuguese) analyzes, part by part, the logic circuits of the four main types of flip-flops (SR, D, JK and T), starting from the SR latch, showing that their apparently complex circuits share a common and simple anatomy.",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/flip-flop-circuits/thumbnail.png?raw=true",
-    "href": "https://medium-com.translate.goog/@filipe.chagas/entendendo-os-circuitos-dos-flip-flops-6c6ee1d6bf47?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en",
+    "href": "https://medium.com/@filipe.chagas/entendendo-os-circuitos-dos-flip-flops-6c6ee1d6bf47",
     "contenttype": "Blog Article",
     "contentsubtype": null,
     "contenttopic": ["Digital Electronics"],
