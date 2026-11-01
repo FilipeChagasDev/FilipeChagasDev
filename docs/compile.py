@@ -13,7 +13,7 @@ content_dirs = ['notebooks', 'apps', 'papers', 'academic-works', 'blog-articles'
 site_url = 'https://filipechagasdev.github.io/FilipeChagasDev/'
 
 # GoatCounter site code (the "xxx" in https://xxx.goatcounter.com). If None, the tracking script is not included.
-goatcounter = None
+goatcounter = 'filipechagasferraz'
 
 language_codes = {'English': 'en', 'Portuguese': 'pt'}
 
