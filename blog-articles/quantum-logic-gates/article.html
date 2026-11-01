@@ -1,0 +1,157 @@
+<h4>The analog of digital logic gates in quantum computing</h4>
+<figure><img src="images/01.png" alt="Classical and quantum logic gates"></figure>
+<p>Continuing the text <a href="../qubits/"><em>Qubits — The (first) principle of quantum computing</em></a>, this article covers <strong>quantum logic gates</strong>, which are responsible for modifying and entangling the states of qubits.</p>
+<h3>Introduction</h3>
+<h4>Classical logic gates and logic circuits</h4>
+<p>A classical logic gate is a device (usually electronic) with a set of input bits and one output bit. This device implements some logic of “ones” and “zeros” to determine the state of the output bit from the states of the input bits.</p>
+<p>The four main classical logic gates are: NOT, OR, AND and XOR.</p>
+<figure><img src="images/02.gif" alt="Simulation of the NOT, OR, AND and XOR logic gates"><figcaption>Simulation of the NOT, OR, AND and XOR logic gates.</figcaption></figure>
+<figure><img src="images/03.png" alt="Truth tables of the NOT, OR, AND and XOR logic gates"><figcaption>Truth tables of the NOT, OR, AND and XOR logic gates.</figcaption></figure>
+<p>By combining classical logic gates, it is possible to create automata and logic circuits capable of performing calculations. The processor of a classical computer, for example, is mostly made up of logic gates.</p>
+<figure><img src="images/04.gif" alt="Simple half adder logic circuit"><figcaption>Simple half adder logic circuit</figcaption></figure>
+<h4>Quantum circuits</h4>
+<figure><img src="images/05.png" alt="Example of a quantum circuit"><figcaption>Example of a quantum circuit</figcaption></figure>
+<p><strong>Quantum circuits</strong> are diagrams that are commonly used as pseudocode for quantum algorithms. In them, qubits are represented as horizontal lines, and the “quantum logic gates” — or rather, the operators analogous to digital logic gates in quantum computing — are represented as small rectangles drawn on the horizontal lines, sometimes accompanied by vertical lines that connect them to control qubits. The left-to-right path along the horizontal lines represents the time evolution of the system.</p>
+<h4>What “quantum logic gates” actually are</h4>
+<p>These so-called quantum logic gates are, in fact, unitary linear operators (matrices). So, it is convenient to continue this reading with a brief overview of linear algebra. After that, the main quantum logic gates and their respective functions within quantum circuits will be presented.</p>
+<h3>Linear algebra concepts</h3>
+<h4>Linear Maps/Transformations and Operators [1]</h4>
+<p><strong>Linear maps</strong>, also known as <strong>linear transformations, linear mappings</strong> and, in some cases, <strong>linear operators</strong>, are functions that have the following properties:</p>
+<ul><li><strong>F(𝑏+𝑐) = F(𝑏) + F(𝑐)</strong>, where 𝑏 and 𝑐 belong to the domain of F.</li><li><strong>F(λ𝑏) = λF(𝑏)</strong>, where λ is a constant.</li></ul>
+<p>A matrix <strong>A</strong> with <strong>𝑛</strong> rows and <strong>𝑚</strong> columns is a linear map such that:</p>
+<figure><img src="images/06.png" alt="Matrix as a linear map"><figcaption>(1)</figcaption></figure>
+<p>where:</p>
+<ul><li><strong>K</strong> is a <strong>field</strong>, a special type of number set. In quantum computing, this <strong>K</strong> is usually ℂ (the set of complex numbers).</li><li><strong>Kᵐ</strong> and <strong>Kⁿ</strong> are vector spaces of, respectively, 𝑚 and 𝑛 dimensions.</li><li><strong>𝑣</strong> is a vector belonging to the vector space <strong>Kᵐ</strong></li><li><strong>A𝑣</strong> (the product of the matrix <strong>A</strong> by the vector <strong>𝑣</strong>) is a vector belonging to the vector space <strong>Kⁿ</strong></li></ul>
+<p>Translating from mathematical language into plain English: the product of the matrix <strong>A</strong> by the vector <strong>𝑣 ∊ Kᵐ</strong> results in a vector <strong>A𝑣</strong> (which we will call <strong>𝑢</strong>) such that <strong>𝑢 ∊ Kⁿ</strong>.</p>
+<figure><img src="images/07.png" alt="Product of a matrix by a vector"><figcaption>(2)</figcaption></figure>
+<p>The matrix <strong>A</strong>, as a linear map, has the following properties:</p>
+<ul><li><strong>A(𝑏+𝑐) = A𝑏 + A𝑐</strong>, where <strong>𝑏,𝑐 ∊ Kᵐ</strong></li><li><strong>A(λ𝑏) = λA(𝑏)</strong>, where <strong>𝑏 ∊ Kᵐ</strong> and <strong>λ∊ K</strong></li></ul>
+<p>Two matrices <strong>A</strong> and <strong>B</strong> with <strong>𝑛</strong> rows and <strong>𝑚</strong> columns have the following properties:</p>
+<ul><li><strong>(A+B)(𝑐) = Ac + Bc</strong>, where <strong>𝑐 ∊ Kᵐ</strong></li><li><strong>(A+B)(𝑏+𝑐) = A(𝑏+𝑐) + B(𝑏+𝑐) = A𝑏 + A𝑐 + B𝑏 + B𝑐</strong>, where <strong>𝑏,𝑐 ∊ Kᵐ</strong></li><li><strong>(A+B)(λ𝑐) = A(λ𝑐) + B(λ𝑐) = λA𝑐 + λB𝑐</strong>, where <strong>𝑐 ∊ Kᵐ</strong> and <strong>λ∊ K</strong></li></ul>
+<p>A linear map can be called a <strong>linear operator</strong> when its domain is equal to its codomain.</p>
+<h4>Identity matrix</h4>
+<p>A matrix with <strong>𝑛</strong> rows and <strong>𝑛</strong> columns whose main diagonal entries are <strong>1</strong> and all other entries are <strong>0</strong> is called an <strong>identity matrix</strong> and is usually denoted by <strong>Iₙ</strong> (or simply <strong>I</strong>, if the number of rows and columns is already clear from the context). <strong>[6]</strong></p>
+<figure><img src="images/08.png" alt="General form of an identity matrix"><figcaption>General form of an identity matrix</figcaption></figure>
+<p>This type of matrix is special because of the following property: for any matrix <strong>A</strong> with <strong>𝑚</strong> rows and <strong>𝑛</strong> columns, we have <strong>Iₘ A = A Iₙ = A</strong>. <strong>[7]</strong></p>
+<p>This first property implies the following ones:</p>
+<ul><li>For any column matrix <strong>𝑣</strong> with <strong>𝑛</strong> entries: <strong>Iₙ 𝑣 = 𝑣</strong>.</li><li>For any row matrix <strong>𝑢</strong> with <strong>𝑛</strong> entries: <strong>𝑢 Iₙ = 𝑢</strong>.</li><li>For any matrix <strong>A</strong> with <strong>𝑛</strong> rows and <strong>𝑛</strong> columns: <strong>Iₙ A = A Iₙ = A</strong>.</li></ul>
+<p>Since, when dealing with linear maps, it is customary to represent vectors as column matrices, it is assumed that an identity matrix <strong>I</strong> is a linear operator that does not change the operand (just like the function <strong>𝑓(𝑥)=𝑥</strong>).</p>
+<h4>Transpose and conjugate transpose matrices</h4>
+<p>Roughly speaking, the <strong>transposition</strong> of a matrix of real numbers is an operation in which the rows of the matrix are turned into columns and the columns are turned into rows.</p>
+<p>Consider a matrix of real numbers <strong>A</strong> with <strong>𝑛</strong> rows and <strong>𝑚</strong> columns. Its transpose <strong>Aᵀ</strong> is a matrix with <strong>𝑚</strong> rows and <strong>𝑛</strong> columns whose entries <strong>Aᵀ₍ⱼ,ₖ₎</strong> (𝑗 being the row index and 𝑘 the column index) satisfy the equivalence <strong>Aᵀ₍ⱼ,ₖ₎=A₍ₖ,ⱼ₎</strong>. <strong>[1]</strong></p>
+<figure><img src="images/09.png" alt="Example of transposition of a matrix of real numbers"><figcaption>Example of transposition of a matrix of real numbers</figcaption></figure>
+<p>For matrices of complex numbers, there are also <strong>conjugate transposes</strong>, in which, in addition to the row-column inversion, the entries are “conjugated”. <strong>[2]</strong> When the matrix of complex numbers is a linear operator, its conjugate transpose is also known as the <strong>Hermitian adjoint operator</strong>. <strong>[8][10]</strong></p>
+<p>Basically, the conjugate of a complex number <strong>𝑧=α+iβ</strong> is <strong>𝑧*=α-iβ</strong> (note the inversion of the sign of the imaginary part).</p>
+<p>Unlike the simple transpose, which is symbolized by a superscript letter ‘T’, the conjugate transpose is represented by a superscript <em>Dagger</em> symbol (‘†’) or by an asterisk (‘*’).</p>
+<figure><img src="images/10.png" alt="Example of conjugate transpose"><figcaption>Example of conjugate transpose</figcaption></figure>
+<h4>Inverse functions and matrices</h4>
+<p>Consider an injective function <strong>𝑓:X⟼Y</strong> (<strong>X</strong> being its domain and <strong>Y</strong> its codomain). The inverse function of <strong>𝑓</strong> is a function <strong>𝑔:Y⟼X</strong> such that, for <strong>𝑥∊X</strong> and <strong>𝑦∊Y</strong>, if it is true that <strong>𝑦=𝑓(𝑥)</strong>, it is also true that <strong>𝑥=𝑔(𝑦)</strong>, that is: <strong>𝑔(𝑓(𝑥))=𝑥</strong>. <strong>[3]</strong></p>
+<p>For example: the functions <strong>𝑓(𝑥)=2𝑥</strong> and <strong>𝑔(𝑥)=𝑥/2</strong> are inverses, since <strong>𝑓(𝑔(𝑥))=2(𝑥/2)=(2/2)𝑥=𝑥</strong>.</p>
+<p>Inverse functions are often denoted by a superscript “<strong>-1</strong>”. The inverse of <strong>𝑓(𝑥)</strong>, for example, can be denoted by <strong>𝑓 ⁻¹(𝑥)</strong>. However, this is a confusing notation, since the superscript “<strong>-1</strong>” can also denote a power, and <strong>𝑓</strong> raised to <strong>-1</strong> is not necessarily equal to the inverse of <strong>𝑓</strong>. <strong>[3]</strong></p>
+<p>An <strong>inverse matrix</strong> is, basically, a matrix form of an <strong>inverse function</strong>.</p>
+<p>Consider a square matrix <strong>A</strong>. Its inverse is a matrix <strong>A⁻¹</strong> such that, if it is true that <strong>𝑢=A𝑣</strong>, it is also true that <strong>𝑣=A⁻¹𝑢</strong>, that is, <strong>𝑣=AA⁻¹𝑣</strong>.</p>
+<p>Given that an identity matrix <strong>I</strong> with the same number of rows and columns as <strong>AA⁻¹</strong> satisfies <strong>𝑣=I𝑣</strong>, it follows that <strong>AA⁻¹=I</strong>. Therefore, to prove that a matrix <strong>B</strong> is the inverse of <strong>A</strong>, it is enough to show that <strong>AB=I</strong>. <strong>[1][4]</strong></p>
+<figure><img src="images/11.png" alt="Example of matrix inversion"><figcaption>Example of matrix inversion</figcaption></figure>
+<h4>Unitary matrix [5]</h4>
+<p>A square matrix <strong>U</strong> (which has the same number of rows and columns) is said to be unitary when its conjugate transpose is also its inverse.</p>
+<figure><img src="images/12.png" alt="Main property of a unitary matrix"><figcaption>Main property of a unitary matrix</figcaption></figure>
+<p>It is possible to check whether a square matrix <strong>U</strong> is unitary in two ways:</p>
+<ul><li>If <strong>|det U|=1</strong>, then the matrix <strong>U</strong> is unitary.</li><li>If <strong>UU*=I</strong>, then the matrix <strong>U</strong> is unitary.</li></ul>
+<p>A unitary matrix is a linear map characterized by not changing the norm of the operand vector (<strong>|U𝑣|=|𝑣|</strong>).</p>
+<p>All linear operators used in quantum algorithms are unitary.</p>
+<h4>Self-adjoint operators</h4>
+<p>A linear operator <strong>A</strong> acting on a Hilbert space is said to be <strong>self-adjoint</strong> when it satisfies the rule <strong>⟨A𝑢|𝑣⟩=⟨𝑢|A𝑣⟩</strong> for any pair <strong>𝑢,𝑣</strong>. <strong>[11]</strong></p>
+<p>When the linear operator is a square matrix, it is also characterized by being equal to its own Hermitian adjoint. <strong>[12]</strong></p>
+<figure><img src="images/13.png" alt="Self-adjoint matrix operator A"><figcaption>Self-adjoint matrix operator A</figcaption></figure>
+<p>Some of the linear operators used in quantum algorithms are self-adjoint.</p>
+<h3>1-qubit operators</h3>
+<p>Here begins the discussion about “quantum logic gates” (or rather, the basic operators of quantum computing). First, 9 1-qubit gates will be presented: Pauli-X, Pauli-Y, Pauli-Z, Rx, Ry, Rz, Hadamard, Phase and π/8. Then, in the next section, 4 multi-qubit gates will be presented: Controlled-NOT, Swap, Controlled-U and Toffoli. These are just some of the existing quantum logic gates. It is possible to create an infinity of other quantum logic gates from these more basic ones.</p>
+<h4>Pauli-X, Pauli-Y and Pauli-Z</h4>
+<figure><img src="images/14.png" alt="Symbols of the Pauli-X, Pauli-Y and Pauli-Z gates"><figcaption>Symbols of the Pauli-X, Pauli-Y and Pauli-Z quantum logic gates on the IBM QX Circuit Composer platform.</figcaption></figure>
+<p>The Pauli-X, Pauli-Y and Pauli-Z operators are responsible for rotating the state of a qubit by 180 degrees on the Bloch sphere.</p>
+<figure><img src="images/15.png" alt="Definition of the Pauli-X, Pauli-Y and Pauli-Z operators"><figcaption>Definition of the Pauli-X, Pauli-Y and Pauli-Z operators. <strong>[13]</strong></figcaption></figure>
+<p>The names of the operators already suggest the rotation axis of each one: Pauli-X rotates around the <strong>x</strong> axis, Pauli-Y rotates around the <strong>y</strong> axis and Pauli-Z rotates around the <strong>z</strong> axis.</p>
+<figure><img src="images/16.png" alt="Pauli-X, Pauli-Y and Pauli-Z transformations on the Bloch sphere"><figcaption>Illustration of the Pauli-X, Pauli-Y and Pauli-Z transformations on the Bloch sphere.</figcaption></figure>
+<p>The Pauli-X operator can be interpreted as a “quantum version” of the NOT logic gate, since:</p>
+<ul><li><strong>X|0⟩ = |1⟩</strong></li><li><strong>X|1⟩ = |0⟩</strong></li></ul>
+<p>The three Pauli operators are self-adjoint.</p>
+<h4>Rx, Ry and Rz rotations</h4>
+<p>The Rx, Ry and Rz operators rotate the state of a qubit by any angle “<strong>θ”</strong> on the Bloch sphere.</p>
+<figure><img src="images/17.png" alt="Definitions of the Rx, Ry and Rz operators"><figcaption>Definitions of the Rx, Ry and Rz operators. <strong>[13]</strong></figcaption></figure>
+<p>Rx rotates around the <strong>x</strong> axis, Ry rotates around the <strong>y</strong> axis and Rz rotates around the <strong>z</strong> axis.</p>
+<p>These operators are not necessarily self-adjoint. The inverses of <strong>Rx(θ), Ry(θ)</strong> and <strong>Rz(θ)</strong> are, respectively, <strong>Rx(-θ), Ry(-θ)</strong> and <strong>Rz(-θ).</strong></p>
+<h4>Hadamard</h4>
+<figure><img src="images/18.png" alt="Symbol of the Hadamard gate"><figcaption>Symbol of the Hadamard quantum logic gate on the IBM QX Circuit Composer platform.</figcaption></figure>
+<figure><img src="images/19.png" alt="Definition of the Hadamard operator"><figcaption>Definition of the Hadamard operator. <strong>[13]</strong></figcaption></figure>
+<p>The Hadamard operator, denoted by the letter ‘H’, is a self-adjoint operator that can be used to turn non-superposed states into superposed states (and vice versa), as shown in the following examples.</p>
+<ul><li><strong>H|0⟩ = (|0⟩+|1⟩)/√2</strong></li><li><strong>H|1⟩ = (|0⟩-|1⟩)/√2</strong></li><li><strong>H(|0⟩+|1⟩)/√2 = |0⟩</strong></li><li><strong>H(|0⟩-|1⟩)/√2 = |1⟩</strong></li></ul>
+<p>The Hadamard operator can alternatively be defined as <strong>H=(X+Z)/√2</strong>. <strong>[13]</strong></p>
+<h4>Phase</h4>
+<figure><img src="images/20.png" alt="Symbol of the S (Phase) gate"><figcaption>Symbol of the S (Phase) quantum logic gate on the IBM QX Circuit Composer platform.</figcaption></figure>
+<figure><img src="images/21.png" alt="Definition of the S operator"><figcaption>Definition of the S operator. [13]</figcaption></figure>
+<p>The Phase operator (denoted by the letter <strong>S</strong>) applies a phase factor <strong>𝑖</strong> to the state <strong>|1⟩</strong>. Using it has the same effect as an <strong>Rz(π/2)</strong> transformation. <strong>[14]</strong></p>
+<ul><li><strong>S|0⟩ = |0⟩</strong></li><li><strong>S|1⟩ = 𝑖|1⟩</strong></li></ul>
+<p><strong>S</strong> is not self-adjoint; its inverse is the operator <strong>S*</strong> (conjugate transpose of <strong>S</strong>).</p>
+<figure><img src="images/22.png" alt="Symbol of the S* gate"><figcaption>Symbol of the S* quantum logic gate (conjugate transpose of S) on the IBM QX Circuit Composer platform.</figcaption></figure>
+<figure><img src="images/23.png" alt="Definition of the S* operator"><figcaption>Definition of the S* operator.</figcaption></figure>
+<h4>π/8</h4>
+<figure><img src="images/24.png" alt="Symbol of the T (π/8) gate"><figcaption>Symbol of the T (π/8) quantum logic gate on the IBM QX Circuit Composer platform.</figcaption></figure>
+<figure><img src="images/25.png" alt="Definition of the T operator"><figcaption>Definition of the T operator. [13]</figcaption></figure>
+<p>The π/8 operator (denoted by the letter <strong>T</strong>) applies a phase factor <strong>exp(𝑖π/4)</strong> to the state <strong>|1⟩</strong>. Using it has the same effect as an <strong>Rz(π/4)</strong> transformation.</p>
+<ul><li><strong>T|0⟩ = |0⟩</strong></li><li><strong>T|1⟩ = exp(𝑖π/4)|1⟩</strong></li></ul>
+<p>This operator is referred to as π/8 simply because it can alternatively be defined as a matrix with <strong>exp(±𝑖π/8)</strong> in the main diagonal entries and a global phase factor <strong>exp(𝑖π/8)</strong>. <strong>[13]</strong></p>
+<figure><img src="images/26.png" alt="Definition of the T operator with global phase factor"><figcaption>Definition of the <strong>T</strong> operator with global phase factor <strong>exp(𝑖π/8)</strong>.</figcaption></figure>
+<p><strong>T</strong> is not self-adjoint; its inverse is the operator <strong>T*</strong> (conjugate transpose of <strong>T</strong>). <strong>[15]</strong></p>
+<figure><img src="images/27.png" alt="Symbol of the T* gate"><figcaption>Symbol of the T* quantum logic gate (conjugate transpose of T) on the IBM QX Circuit Composer platform.</figcaption></figure>
+<figure><img src="images/28.png" alt="Definition of the T* operator"><figcaption>Definition of the T* operator (conjugate transpose of T).</figcaption></figure>
+<h3>Multi-qubit operators</h3>
+<h4>Controlled-NOT</h4>
+<figure><img src="images/29.png" alt="Symbol of the Controlled-NOT gate"><figcaption>Symbol of the Controlled-NOT quantum logic gate on the IBM QX Circuit Composer platform. The control and target qubits are, respectively, q0 and q1.</figcaption></figure>
+<figure><img src="images/30.png" alt="Definition of the Controlled-NOT operator"><figcaption>Definition of the Controlled-NOT operator. <strong>[13]</strong></figcaption></figure>
+<p>Controlled-NOT is the most basic of the multi-qubit operators. It has two operands: a control qubit and a target qubit. In terms of computational basis states, its behavior can be defined as follows:</p>
+<ul><li><strong>|𝑐⟩|𝑡⟩</strong> ⟼ <strong>|𝑐⟩|𝑐 ⊕ 𝑡⟩</strong>, where <strong>𝑐</strong> and <strong>𝑡</strong> are, respectively, <em>control</em> and <em>target</em>, and “⊕” is an addition modulo 2, equivalent to the boolean XOR operator. <strong>[13]</strong></li></ul>
+<figure><img src="images/31.png" alt="Inputs and outputs of the Controlled-NOT gate"><figcaption>Inputs and outputs of the Controlled-NOT quantum logic gate</figcaption></figure>
+<p>Basically, the Controlled-NOT operator inverts the state of the target qubit when the control qubit is set to <strong>|1⟩</strong>. When the control qubit is set to <strong>|0⟩</strong>, the state of the target qubit does not change. In both cases, the state of the control qubit does not change. <strong>[13]</strong></p>
+<p>It is possible to explain this behavior using an analogy with the ternary <em>if</em> operator of a programming language, as shown in the following example:</p>
+<ul><li><strong>|𝑐⟩|𝑡⟩</strong> ⟼ <strong>|𝑐⟩|<em>not</em> 𝑐 <em>if</em> 𝑡 == 1 <em>else</em> c⟩</strong></li></ul>
+<p>Note: in this example I specifically used the syntax of the ternary <em>if</em> of the Python language.</p>
+<p>In general, the Controlled-NOT operator tends to behave like a Pauli-X operator applied to the target qubit when the control qubit collapses into <strong>|1⟩</strong>.</p>
+<p>The Controlled-NOT operator is self-adjoint.</p>
+<h4>Swap</h4>
+<figure><img src="images/32.png" alt="Symbol of the Swap gate"><figcaption>Symbol of the Swap quantum logic gate on the IBM QX Circuit Composer platform.</figcaption></figure>
+<p>Swap is an operator composed of an arrangement of 3 Controlled-NOT operators. Its function is, basically, to swap the states of the pair of operand qubits.</p>
+<figure><img src="images/33.png" alt="Composition of a Swap operator using 3 Controlled-NOT operators"><figcaption>Composition of a Swap operator using 3 Controlled-NOT operators. The system starts in the state <strong>|ψ⟩</strong>⊗<strong>|ɸ⟩</strong> and ends in the state <strong>|ɸ⟩</strong>⊗<strong>|ψ⟩</strong>, thanks to the permutation applied by the Swap operator. <strong>[16]</strong></figcaption></figure>
+<p>The behavior of the Swap operator can be defined as follows:</p>
+<ul><li><strong>|ψ⟩|ɸ⟩</strong> ⟼ <strong>|ɸ⟩|ψ⟩</strong></li></ul>
+<p>The Swap operator is self-adjoint.</p>
+<h4>Controlled-U</h4>
+<figure><img src="images/34.png" alt="Symbol of a Controlled-U operator"><figcaption>Symbol of a Controlled-U operator</figcaption></figure>
+<p>Controlled-U is a generalization of the various controlled operators that can be created from the Controlled-NOT operator and the 1-qubit operators. <strong>[13]</strong> Basically, for a 1-qubit unitary operator <strong>U</strong>, there can be a controlled version, which acts as <strong>U</strong> on the target qubit only when the control qubit collapses into <strong>|1⟩.</strong></p>
+<h4>Toffoli</h4>
+<figure><img src="images/35.png" alt="Symbol of the Toffoli gate"><figcaption>Symbol of the Toffoli quantum logic gate on the IBM QX Circuit Composer platform. The two control qubits and the target qubit are, respectively, q0, q1 and q2.</figcaption></figure>
+<figure><img src="images/36.png" alt="Definition of the Toffoli operator"><figcaption>Definition of the Toffoli operator. <strong>[17]</strong></figcaption></figure>
+<p>Toffoli is an operator that works similarly to Controlled-NOT, but with two control qubits.</p>
+<p>In terms of computational basis states, the Toffoli operator inverts the state of the target qubit only when both control qubits are set to <strong>|1⟩. [13]</strong></p>
+<figure><img src="images/37.png" alt="Truth table and symbology of the Toffoli gate"><figcaption>Truth table and symbology of a Toffoli quantum logic gate. <strong>[13]</strong></figcaption></figure>
+<p>This behavior can be defined as follows:</p>
+<ul><li><strong>|𝑐₁⟩|𝑐₂⟩|𝑡⟩</strong> ⟼ <strong>|𝑐₁⟩|𝑐₂⟩|𝑐₁𝑐₂ ⊕ 𝑡⟩</strong>, where <strong>𝑐₁</strong>, <strong>𝑐₂</strong> and <strong>𝑡</strong> are, respectively, control 1, control 2, and <em>target</em>.</li></ul>
+<p>The Toffoli quantum logic gate can be implemented as a quantum circuit composed of 1- and 2-qubit gates, as shown in the following illustration:</p>
+<figure><img src="images/38.png" alt="Implementation of the Toffoli gate"><figcaption>Implementation of the Toffoli quantum logic gate <strong>[13]</strong></figcaption></figure>
+<p>The Toffoli operator is self-adjoint.</p>
+<h3>References</h3>
+<p>[1] LIESEN, Jörg; MEHRMANN, Volker. Linear Algebra. [S. l.]: Springer International Publishing, 2015. DOI 10.1007/978–3–319–24346–7. Available at: <a href="http://dx.doi.org/10.1007/978-3-319-24346-7.">http://dx.doi.org/10.1007/978-3-319-24346-7.</a></p>
+<p>[2] <a href="https://mathworld.wolfram.com/about/author.html">Weisstein, Eric W.</a> “Conjugate Transpose.” From <a href="https://mathworld.wolfram.com/"><em>MathWorld</em></a> — A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/ConjugateTranspose.html">https://mathworld.wolfram.com/ConjugateTranspose.html</a></p>
+<p>[3] <a href="https://mathworld.wolfram.com/about/author.html">Weisstein, Eric W.</a> “Inverse Function.” From <a href="https://mathworld.wolfram.com/"><em>MathWorld</em></a> — A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/InverseFunction.html">https://mathworld.wolfram.com/InverseFunction.html</a></p>
+<p>[4] <a href="https://mathworld.wolfram.com/topics/Stover.html">Stover, Christopher</a> and <a href="https://mathworld.wolfram.com/about/author.html">Weisstein, Eric W.</a> “Matrix Inverse.” From <a href="https://mathworld.wolfram.com/"><em>MathWorld</em></a> — A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/MatrixInverse.html">https://mathworld.wolfram.com/MatrixInverse.html</a></p>
+<p>[5] <a href="https://mathworld.wolfram.com/topics/RowlandTodd.html">Rowland, Todd</a>. “Unitary Matrix.” From <a href="https://mathworld.wolfram.com/"><em>MathWorld</em></a> — A Wolfram Web Resource, created by <a href="https://mathworld.wolfram.com/about/author.html">Eric W. Weisstein</a>. <a href="https://mathworld.wolfram.com/UnitaryMatrix.html">https://mathworld.wolfram.com/UnitaryMatrix.html</a></p>
+<p>[6] <a href="https://mathworld.wolfram.com/about/author.html">Weisstein, Eric W.</a> “Identity Matrix.” From <a href="https://mathworld.wolfram.com/"><em>MathWorld</em></a> — A Wolfram Web Resource. <a href="https://mathworld.wolfram.com/IdentityMatrix.html">https://mathworld.wolfram.com/IdentityMatrix.html</a></p>
+<p>[7] IDENTITY Matrix. In: Wikipedia: the free encyclopedia. Available at: &lt;<a href="https://en.wikipedia.org/wiki/Identity_matrix">https://en.wikipedia.org/wiki/Identity_matrix</a>&gt; Accessed on: Nov 26, 2020.</p>
+<p>[8] Sakurai, J., Napolitano, J., &amp; Dahmen, S. (2013). <em>Mecânica quântica moderna</em> (Modern Quantum Mechanics). Bookman.</p>
+<p>[10] Horn, Roger A.; Johnson, Charles R. (1985). <em>Matrix Analysis</em>. [S.l.]: Cambridge University Press. ISBN 0–521–38632–2</p>
+<p>[11] Stulpe W. (2009) Self-Adjoint Operator. In: Greenberger D., Hentschel K., Weinert F. (eds) Compendium of Quantum Physics. Springer, Berlin, Heidelberg. <a href="https://doi.org/10.1007/978-3-540-70626-7_196">https://doi.org/10.1007/978-3-540-70626-7_196</a></p>
+<p>[12] OPERADOR autoadjunto (Self-adjoint operator). In: Wikipédia: a enciclopédia livre. Available at: &lt;<a href="https://pt.wikipedia.org/wiki/Operador_autoadjunto">https://pt.wikipedia.org/wiki/Operador_autoadjunto</a>&gt; Accessed on: Nov 26, 2020.</p>
+<p>[13] Nielsen, M., &amp; Chuang, I. (2010). <em>Quantum Computation and Quantum Information: 10th Anniversary Edition</em>. Cambridge: Cambridge University Press. doi:10.1017/CBO9780511976667</p>
+<p>[14] Voorhoede, D., 2021. <em>S Gate</em>. [online] Quantum Inspire. Available at: &lt;https://www.quantum-inspire.com/kbase/s-gate/&gt; [Accessed 6 February 2021].</p>
+<p>[15] Voorhoede, D., 2021. <em>T Gate</em>. [online] Quantum Inspire. Available at: &lt;https://www.quantum-inspire.com/kbase/t-gate/&gt; [Accessed 6 February 2021].</p>
+<p>[16] Colin Wilmott. (2011). A generalized quantum SWAP gate. &lt;<a href="https://arxiv.org/abs/0811.1684">https://arxiv.org/abs/0811.1684</a>&gt; [Accessed 6 February 2021].</p>
+<p>[17] Voorhoede, D., 2021. <em>Toffoli Gate</em>. [online] Quantum Inspire. Available at: &lt;https://www.quantum-inspire.com/kbase/toffoli/&gt; [Accessed 7 February 2021].</p>

@@ -1,0 +1,284 @@
+<figure><img src="images/01.png" alt="Graph of a generalized nondeterministic finite automaton"><figcaption>Graph of a generalized nondeterministic finite automaton (GNFA)</figcaption></figure>
+<h3>Chapter 1 — Introduction</h3>
+<p>Graphs are present in much of what concerns computer science. They are a perfectly computable abstraction for a large part of the relations of reality and of human imagination.</p>
+<p>Conceptually, a graph is composed of a discrete set of elements that represent the existence of something material or imaginary. These elements are related; there is a rule, or a set of rules, logically defining these relations. In other words, the elements of the discrete set in question are interconnected by relations with a well-defined incidence pattern, and these relations are part of the graph — they are expressed by <strong>edges</strong>, while the interconnected elements are expressed by <strong>vertices</strong>.</p>
+<p>You may ask for clarification: by the way, what exactly does this mean? What is the practical application of all this? To answer these questions, it is convenient to first get to know some formalisms about graphs. The conception of this universe of ideas with vertices and edges is the role of a mathematical theory foreshadowed by <strong>Leonhard Euler</strong> in 1736, in his paper on the <strong>problem of the 7 bridges of Königsberg</strong>. It is called <strong>graph theory</strong>.</p>
+<p>Basically, <strong>graph theory</strong> deals with relations between elements of discrete sets. It is widely used in algorithms to abstract objects of the real or imaginary world that are interrelated in some way.</p>
+<h3>Chapter 2 — Mathematical theory of graphs</h3>
+<h4>2.1 Elements of a graph</h4>
+<p>A graph consists of a set of <strong>vertices</strong>, a set of <strong>edges</strong> and an <strong>incidence function</strong>.</p>
+<ul><li><strong>The vertices</strong> are elements, interrelated in some way, belonging to a discrete (countable) set.</li><li><strong>The edges</strong> are elements of a discrete set that describe, in some way, the relations between the vertices of the graph.</li><li><strong>The incidence function</strong> is a function that maps, for each edge of the graph, a pair of vertices involved in the relation.</li></ul>
+<p>Graphs are usually represented graphically by diagrams, where the vertices are points and the edges are lines (or arrows, in the case of digraphs) connecting the points of the respective vertices involved in the relation.</p>
+<figure><img src="images/02.png" alt="Undirected graph with vertices A, B, C, D and edges 1, 2, 3, 4"><figcaption>Graphical representation of an undirected graph formed by the vertices <strong>{A, B, C, D}</strong> and by the edges <strong>{1, 2, 3, 4}</strong>.</figcaption></figure>
+<p>In the graph of the figure above, we have a set of vertices <strong><em>VG = {A, B, C, D}</em></strong>, and a set of edges <strong><em>aG = {1, 2, 3, 4}</em></strong>. The incidence function <strong>ΨG</strong> maps the relations of the set of edges as follows:</p>
+<figure><img src="images/03.png" alt="Incidence function for each edge"><figcaption>Response of the incidence function for each edge of the graph shown above</figcaption></figure>
+<p>These elements of the graph can have several interpretations. If we were representing a <strong>city map</strong>, the vertices could be the houses and the edges could be the two-way roads that connect these houses. In another example: if we were representing a social network, the vertices could be people and the edges could be the friendships between them. Note that in both cases the relations are mutual.</p>
+<ul><li>In the social network example: if there is a friendship between two people, then both know each other and consider each other friends.</li><li>In the map example: if there is a two-way road connecting two houses, any vehicle can move to either of the two houses through this road.</li></ul>
+<p>However, there are cases in which the relations of the graph are not mutual. If we were, for example, representing a map (similar to the map of the previous example) with one-way streets (where vehicles can only move in one direction), the idea of a mutual relation in the graph would no longer work. Another example: if we were representing a social network such as <em>Twitter</em> or <em>Instagram</em>, in which friendships are replaced by “follower” and “followed” relations (and a person is not obliged to follow their followers), the idea of a mutual relation in the graph would not work either.</p>
+<h4>2.2 Digraphs</h4>
+<p>The fact that it may be necessary to represent non-mutual relations with graphs justifies the existence of two categories of graphs:</p>
+<ul><li><strong>Undirected graphs</strong>: graphs whose edges represent mutual relations.</li><li><strong>Directed graphs</strong> (also called <strong>digraphs</strong>): graphs whose edges have a defined direction and represent relations that are not necessarily mutual.</li></ul>
+<p>In the graphical representation of a digraph, the edges are represented as arrows indicating one or two directions, instead of lines.</p>
+<figure><img src="images/04.png" alt="Digraph with vertices A, B, C, D and directed edges 1, 2, 3, 4"><figcaption>Graphical representation of a digraph formed by the vertices <strong>{A, B, C, D}</strong> and by the directed edges <strong>{1, 2, 3, 4}.</strong></figcaption></figure>
+<p>It is possible to represent a map with one-way roads, or a social network such as <em>Twitter</em> or <em>Instagram</em>, using a digraph, because of their relations, which are not necessarily mutual.</p>
+<h4>2.3 Weighted graphs</h4>
+<p>Weighted graphs are graphs whose edges have weights. They are used to represent some scalar characteristic of the corresponding relation.</p>
+<figure><img src="images/05.png" alt="Weighted digraph"><figcaption>Graphical representation of a digraph formed by the vertices <strong>{A, B, C, D}</strong> and by the weighted directed edges <strong>{1, 2, 3, 4}</strong>. The weights of the edges are in brown, while the numbering is in red.</figcaption></figure>
+<p>The weights can be used to indicate a measure of cost or magnitude of the incidence of the corresponding relation. In the city map example, the weights can represent the length of the roads, the difficulty of moving along the road, or a product of these two factors.</p>
+<h4>2.4 Null graphs</h4>
+<figure><img src="images/06.png" alt="Null graph with 4 vertices"><figcaption>Null graph with 4 vertices</figcaption></figure>
+<p>By definition, a graph is <strong>null</strong> when it has no edges (even if it has vertices).</p>
+<h4>2.5 Complete graphs</h4>
+<figure><img src="images/07.png" alt="Complete graph with 5 vertices"><figcaption>Complete graph with 5 vertices</figcaption></figure>
+<p>By definition, a graph is <strong>complete</strong> when all its possible pairs of vertices are connected by an edge.</p>
+<h4>2.6 Regular graphs</h4>
+<figure><img src="images/08.png" alt="Regular graph of degree 5"><figcaption>Regular graph of degree 5 (5-regular).</figcaption></figure>
+<p>By definition, a graph is <strong>k-regular</strong> when all its vertices are connected by the same number <strong>k</strong> of edges. In other words, if all the vertices of the graph have the same degree <strong>k</strong>, the graph is <strong>k-regular</strong> (of degree <strong>k</strong>).</p>
+<h4>2.7 Subgraphs</h4>
+<figure><img src="images/09.png" alt="A graph and one of its subgraphs"><figcaption>From left to right, respectively, a graph and one of its subgraphs.</figcaption></figure>
+<p>The concept of subgraph is analogous to the definition of subset. Suppose that, in the image above, the graph on the left is <strong>G</strong> and the graph on the right is <strong>H</strong>. When a graph <strong>H</strong> is contained in a graph <strong>G</strong>, it is said that <strong>H</strong> is a subgraph of <strong>G</strong>. In other words: if the set of vertices of <strong>H</strong> is a subset of the vertices of <strong>G</strong>, the set of edges of <strong>H</strong> is a subset of the edges of <strong>G</strong>, and these vertices are interconnected in <strong>H</strong> in the same way as they are in <strong>G</strong>, then <strong>H</strong> is a subgraph of <strong>G</strong>.</p>
+<h4>2.8 Loops</h4>
+<figure><img src="images/10.png" alt="Vertex connected to itself by a loop"><figcaption>Vertex connected to itself by a loop</figcaption></figure>
+<p>By definition, an edge that connects a vertex to itself is called a <strong>loop</strong>.</p>
+<h4>2.9 Cycles</h4>
+<figure><img src="images/11.png" alt="Cycle graph with 5 vertices"><figcaption>Cycle graph with 5 vertices</figcaption></figure>
+<p>A cycle is a graph where all possible pairs of vertices are connected by an edge, and all vertices have 2 connections. In other words, a connected graph of degree 2 is, by definition, a cycle.<br>A graph that has one or more cycles in its subgraphs is characterized by forming paths through which it is possible to return to the starting vertex. It is necessary to be careful with this kind of graph in programming, because cycles can be problematic for some algorithms.</p>
+<h3>Chapter 3 — Data structures</h3>
+<h4>3.1 Data structures</h4>
+<p><strong>Data structures (DSs)</strong> — which are the subject of this chapter — are basically particular ways of organizing data in the memory of a computer. It is quite common for data organizations composed of elements of discrete sets and relations to be used in computer programs. Algorithms such as <strong>linked lists</strong> and <strong>binary trees</strong> use this logic to group data scattered in the memory of the computer so that it can be manipulated with some efficiency.</p>
+<h4>3.2 Models</h4>
+<p>Creating a computer program is a process, and some steps of this process happen before coding. In general, a program conception phase should precede coding, and this phase can be carried out in several ways: it can be performed by a software engineer, by a scientist, or by the programmer themself, and it can have a record — a list of requirements, a diagram, a flowchart or even a representation in mathematical language.</p>
+<p>The program conception phase may involve designing a schematic and easy-to-understand representation of what should be implemented in the coding phase — the <strong>model</strong>. Here we move from a tedious, purely theoretical approach to something more “tangible”: for a good part of the algorithms that deal with what we call <strong>data structures</strong>, the models are, basically, graphs.</p>
+<h4>3.3 About not very formal terms</h4>
+<p>When it comes to algorithms and computer programming, what is known as a “vertex” or an “edge” in graph theory is usually called a “node”, “item” or “element”, especially since the theory is only an abstraction of practice, and these applications do not need to fully match the mathematical definitions of graphs. In this text, the term “element” will often be used to refer to something that can be a vertex or an edge of a graph.</p>
+<h4>3.4 Basic DSs — Linked Lists and Trees</h4>
+<p>There are two graph-based algorithm models that are very common in computer programming:</p>
+<ul><li><strong>Linked lists</strong> are often used to create linear dynamic arrays of elements. This DS model allows data to be grouped in an arrangement that supports insertions and removals of elements at low computational cost.</li><li><strong>Trees</strong> are often used to create non-linear dynamic arrays of elements. This model allows data to be grouped with a defined ordering rule, supporting insertions and removals of elements at low cost. Some variations of trees can also be used to organize families of data (this is what happens, for example, in a file and directory system).</li></ul>
+<p>These two DS models are very well known and widely used, practically regarded as basic concepts of computer science, and their applications generally do not require major reinventions, only small adaptations. Both have several implementations available to the public, which can be easily found with quick searches on <em>Google</em> or <em>GitHub</em>.</p>
+<p>These models are not the only possible ones, nor the only necessary ones. As versatile as they are, sometimes a radical change in the way they are implemented or applied is — yes — necessary. There are also cases in which it is necessary to use a less common and more specific model for a given application, or even to create a new model.</p>
+<h4>3.5 Linked list</h4>
+<figure><img src="images/12.png" alt="Singly linked list"><figcaption>Graphical representation of a singly linked list</figcaption></figure>
+<p>A <strong>linked list</strong> is a linear data structure. In it, the elements of the set are associated by “next” or “previous” relations, with the intention of creating a kind of imaginary row.</p>
+<h4>3.6 Tree</h4>
+<figure><img src="images/13.png" alt="Binary tree"><figcaption>Graphical representation of a binary tree</figcaption></figure>
+<p><strong>Trees</strong> are non-linear data structures, in which the elements are usually associated by relations such as “left”, “right”, “lower”, “upper”, “parent”, “child”, “smaller”, “greater”, etc. These structures form <strong>connected</strong> and <strong>acyclic</strong> graphs. When represented graphically, they form diagrams that resemble the physical structure of a tree (from nature), with forking branches.</p>
+<h3>Chapter 4 — Vertices and edges in data structures</h3>
+<h4>4.1 Records, objects and references</h4>
+<p>In data structures such as <strong>linked lists</strong> and <strong>trees</strong>, the vertices of the model are usually implemented as records or objects, containing the information of the corresponding element. Inside these records or objects, there are usually references to other elements of the same set: these references play the role of the <strong>edges</strong> of the graph.</p>
+<pre><code>class ListNode:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+	def insert(self, node):
+		node.next = self.next
+		self.next = node
+
+#Building the list &#x27;Filipe&#x27;-&gt;&#x27;Chagas&#x27;-&gt;&#x27;Ferraz&#x27;
+
+lst = ListNode(&#x27;Filipe&#x27;)
+lst.insert(ListNode(&#x27;Ferraz&#x27;))
+lst.insert(ListNode(&#x27;Chagas&#x27;))</code></pre>
+<p>Note that, in the algorithm shown above, the <strong>ListNode</strong> class defines the standard structure of the elements of the linked list. This class has two attributes: <strong>data</strong> and <strong>next</strong>. The <strong>data</strong> attribute must contain any piece of information (such as my name), and the <strong>next</strong> attribute must contain a reference to the <strong>ListNode</strong> object of the adjacent element (or <strong>None</strong>, if there is no adjacent element).</p>
+<h4>4.2 Adjacency lists</h4>
+<p>Programming graphs outside the molds of linked lists and trees using arrays/records/classes and references is not always convenient. Another simple way to represent a graph in lines of code is to create a structure that contains an adjacency list for each vertex of the graph.</p>
+<figure><img src="images/14.png" alt="A graph"><figcaption>A graph (which you already saw in the second section of this text)</figcaption></figure>
+<figure><img src="images/15.png" alt="Adjacencies of the vertices of the graph"><figcaption>Adjacencies of the vertices of the graph in the image above</figcaption></figure>
+<pre><code>graph = {
+	&#x27;A&#x27;: [&#x27;B&#x27;, &#x27;D&#x27;],
+	&#x27;B&#x27;: [&#x27;C&#x27;],
+	&#x27;C&#x27;: [&#x27;B&#x27;,&#x27;D&#x27;],
+	&#x27;D&#x27;: []
+}</code></pre>
+<p>In this algorithm, a dictionary was created with an adjacency list for each vertex of the graph.</p>
+<p>The dictionary is a feature of the <em>Python</em> language that makes our work much easier, since it allows the adjacency lists to be indexed with <em>strings</em> instead of natural numbers, but this does not mean that this programming technique cannot be reproduced in other languages.</p>
+<pre><code>#include &lt;map&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+	std::map&lt;char, std::vector&lt;char&gt;&gt; graph;
+	graph[&#x27;A&#x27;] = {&#x27;B&#x27;, &#x27;D&#x27;};
+	graph[&#x27;B&#x27;] = {&#x27;C&#x27;};
+	graph[&#x27;C&#x27;] = {&#x27;B&#x27;, &#x27;D&#x27;};
+	graph[&#x27;D&#x27;] = {};
+
+	return 0;
+}</code></pre>
+<h3>Chapter 5 — Searching for specific elements in graphs</h3>
+<p>Imagine a situation in which, while dealing with a collection of data scattered in the memory of the computer, it is necessary to obtain one or more elements of this collection that match a certain pattern. This is, categorically, a <strong>search</strong> problem, and there are two well-known ways to solve it in the computational scope of graphs: <strong>depth-first search</strong> and <strong>breadth-first search</strong>. Both solutions will be explained.</p>
+<h4>5.1 Depth-first search</h4>
+<p>Depth-first search is a strategy used to search for specific elements in graphs. This technique makes use of <strong>recursive functions</strong>, and works very well with <strong>tree graphs</strong>.</p>
+<p>The recursive search function must perform the following process:</p>
+<p>1 — Get the element received as an argument</p>
+<p>2 — Check whether the element obtained is the element being searched for:</p>
+<ul><li><strong>If it is</strong>, the current scope of the recursive function must return this element</li><li><strong>If it is not</strong>, the process continues</li></ul>
+<p>3 — Get the adjacent elements of the element received as an argument</p>
+<p>4 — For each of the adjacent elements, make a recursive call passing the respective element as an argument</p>
+<p>5 — Check whether any of the recursive calls returned the element being searched for:</p>
+<ul><li><strong>If so</strong>, the current scope of the recursive function must return this element</li><li><strong>If not</strong>, the current scope of the recursive function must return a value indicating that the element being searched for was not found.</li></ul>
+<p>For a tree graph <strong>G</strong>, consider a depth-first search function <strong>R = b(E)</strong>, where <strong>E</strong> is an element (vertex) of the tree and <strong>R</strong> is the element that <strong>b(E)</strong> returned. The procedure of <strong>R = b(E)</strong> can be described with the following flowchart:</p>
+<figure><img src="images/16.png" alt="Flowchart of the depth-first search function"><figcaption>Flowchart of the depth-first search function <strong>R = b(E)</strong></figcaption></figure>
+<p>For demonstration purposes, consider that we are working with a tree formed by objects of a class called <strong>TreeNode</strong>, with the following attributes:</p>
+<ul><li><strong>name</strong>: contains the name of a person;</li><li><strong>id</strong>: contains the identification number of the person;</li><li><strong>smaller</strong>: contains a reference to another object with a smaller identification number (or <strong>None</strong>, if there is no adjacency);</li><li><strong>greater</strong>: contains a reference to another object with a greater identification number (or <strong>None</strong>, if there is no adjacency).</li></ul>
+<p>The <strong>TreeNode</strong> class also has a method called <strong>insert</strong>, which inserts new objects into the tree recursively, and a method called <strong>print_info</strong>, which prints in the <em>prompt</em> a message with the values contained in the object for the <strong>name</strong> and <em>id</em> attributes.</p>
+<p>See, in the next algorithm, a possible implementation of this class.</p>
+<pre><code>
+class TreeNode:
+
+	# Class constructor
+	def __init__(self, name, id):
+		self.name = name
+		self.id = id
+		self.smaller = None
+		self.greater = None
+
+	# Insert new elements into the tree
+	def insert(self, node):
+		if node.id &lt; self.id:
+			if self.smaller == None:
+				self.smaller = node
+			else:
+				self.smaller.insert(node)
+		elif node.id &gt; self.id:
+			if self.greater == None:
+				self.greater = node
+			else:
+				self.greater.insert(node)
+		else:
+			print(&#x27;Error: repeated id&#x27;)
+
+	# Print information about the element
+	def print_info(self):
+		print(&#x27;id and name:&#x27;)
+		print(self.id)
+		print(self.name)
+
+#End of the TreeNode class</code></pre>
+<p>We can easily create an algorithm that accesses all the elements of this tree using a recursive function. See the following example.</p>
+<pre><code>def traverse_tree(node):
+	if node &lt;&gt; None:
+		traverse_tree(node.smaller)
+		node.print_info()
+		traverse_tree(node.greater)</code></pre>
+<p>The <strong>traverse_tree</strong> function invokes the <strong>print_info</strong> method for each of the objects of the tree, and a list with all the names and <em>ids</em> of the tree is printed (with the <em>ids</em> in ascending order).<br> <br> It is possible to create a recursive function that searches for a certain value in the tree and returns the <strong>TreeNode</strong> object where the value was found.</p>
+<pre><code>def search(node, name):
+	if node &lt;&gt; None:
+		if node.name == name:
+			return node
+		else:
+			received = search(node.smaller, name)
+			if received &lt;&gt; None:
+				return received
+			else:
+				received = search(node.greater, name)
+				if received &lt;&gt; None:
+					return received
+				else:
+					return None
+	else:
+		return None</code></pre>
+<p>When the <strong>search</strong> function is invoked, receiving as arguments the root of the tree and a name contained in one of its elements, a <strong>depth-first search</strong> is performed on the tree, and the object in which the name was found is returned. When the name is not found in the tree, the function returns <strong>None</strong>.<br> <br> Depth-first search goes through the elements of the tree “from top to bottom” (or “from bottom to top”), in sequences of increasing or decreasing depth. When an element of the tree is accessed and its evaluation by the search is finished, before checking the other elements of the same level of the tree, the algorithm goes through the elements of lower or higher depth. This “dive” into the levels of the tree (which usually happens several times in a search) ends when, in one of its recursive calls, the function reaches an end of the tree.</p>
+<figure><img src="images/17.png" alt="Sequence of checks of a depth-first search in a binary tree"><figcaption>Example of a sequence of checks that a depth-first search algorithm can perform on a binary tree</figcaption></figure>
+<p>However, if this technique is applied to a graph that contains cycles, the recursion will enter a chain of repeated accesses to certain objects of the structure and, eventually, a failure known as <strong>stack overflow</strong> will occur. In these cases, it is necessary to use some device to “mark” the objects that have already been accessed during the search, so that the algorithm does not check an object more than once during the search.</p>
+<h4>5.2 Breadth-first search</h4>
+<p>Breadth-first search is a graph search strategy in which, after checking an element of the graph, all the adjacent elements are obtained and checked. This strategy does not have the same problem as depth-first search regarding cyclic graphs, although it also has some weaknesses that will be mentioned later.</p>
+<p>The device used to perform breadth-first search is a <strong>queue</strong> algorithm. After the first element of the graph is checked, all the adjacent elements are obtained and inserted into the queue. The execution of the algorithm continues in successive repetitions of the following process:</p>
+<p>1 — Get (and remove from the queue) the element that has been in the queue the longest</p>
+<p>2 — Check whether the element obtained is the element being searched for:</p>
+<ul><li><strong>If it is</strong>, the succession of repetitions ends</li><li><strong>If it is not</strong>, the process continues</li></ul>
+<p>3 — Get the adjacent elements of the last element obtained</p>
+<p>4 — Insert all the adjacent elements obtained into the queue</p>
+<p>For a graph <strong>G</strong>, consider a breadth-first search function <strong>R = b(E)</strong>, where <strong>E</strong> is an element (vertex) of the graph and <strong>R</strong> is the element that <strong>b(E)</strong> returned. The procedure of <strong>R = b(E)</strong> can be described with the following flowchart:</p>
+<figure><img src="images/18.png" alt="Flowchart of the breadth-first search function"><figcaption>Flowchart of the breadth-first search function <strong>R = b(E)</strong></figcaption></figure>
+<p>To demonstrate this technique, a breadth-first search algorithm will be presented for the following digraph:</p>
+<figure><img src="images/19.png" alt="Example digraph"><figcaption>Example digraph</figcaption></figure>
+<p>This digraph was implemented with a class called <strong>Element</strong>, which has the following attributes:</p>
+<ul><li><strong>Color:</strong> contains the color of the element in the graph.</li><li><strong>Adjacencies:</strong> contains a list of adjacent elements.</li></ul>
+<pre><code>class Element:
+    def __init__(self, color):
+	self.color = color
+	self.adjacencies = []
+
+#Elements of the graph
+A = Element(&#x27;Gray&#x27;)
+B = Element(&#x27;Pink&#x27;)
+C = Element(&#x27;Red&#x27;)
+D = Element(&#x27;Green&#x27;)
+E = Element(&#x27;Blue&#x27;)
+F = Element(&#x27;Yellow&#x27;)
+G = Element(&#x27;Orange&#x27;)
+
+#Adjacency lists
+A.adjacencies = [B, D, E]
+B.adjacencies = [C]
+C.adjacencies = [G]
+D.adjacencies = [C]
+E.adjacencies = [D, F]
+F.adjacencies = [G]
+G.adjacencies = [D]</code></pre>
+<p>It is possible to implement a function to search (using a breadth-first search) for the element of a certain color in the graph as follows:</p>
+<pre><code>def search (e_start, color):
+	queue = [e_start]
+
+	while len(queue) &gt; 0:
+		#Get an object from the queue
+		e_current = queue.pop()
+
+		if e_current.color == color:
+			#Found!!
+			return e_current
+		else:
+			#Insert adjacencies into the queue
+			for e_adjacent in e_current.adjacencies:
+				queue.insert(0, e_adjacent)
+	#Not found
+	return None</code></pre>
+<p>The <strong>search</strong> function, of the algorithm above, must receive as arguments any <strong>Element</strong> object of the graph (from which the search will start) and the color of the element being searched for.<br> <br> However, this implementation has two problems:</p>
+<p>1 — If the element being searched for does not exist in the graph, the procedure will enter an infinite <em>loop</em>, causing the application to freeze.<br> 2 — If the graph is cyclic, objects (which have already been checked) will possibly be reinserted into the queue, which is unnecessary and implies a waste of memory.</p>
+<p>These two problems can be fixed if, in the implementation of the <strong>search</strong> function, the following rule is defined:</p>
+<p><strong>An object can only be inserted into the queue if:</strong></p>
+<p>1 — It has not been checked yet;<br>2 — It is not in the queue waiting to be checked.</p>
+<figure><img src="images/20.png" alt="Flowchart of the breadth-first search function with the new rule"><figcaption>Flowchart of the breadth-first search function <strong>R = b(E)</strong> with the new rule.</figcaption></figure>
+<p>The first condition of the rule can be implemented if all checked objects are inserted into a list. In this case, it is possible to know whether an object has already been checked by verifying whether it is contained in this list.</p>
+<pre><code>def search (color, e_start):
+	queue = [e_start]
+	checked = []
+
+	while len(queue) &gt; 0:
+		#Get object from the queue to be checked
+		e_current = queue.pop()
+		checked.append(e_current)
+
+		#Check object
+		if e_current.color == color:
+			#Found!!
+			return e_current
+		else:
+			#Insert adjacencies into the queue
+			for e_adjacent in e_current.adjacencies:
+				if ((e_adjacent not in checked)
+					and (e_adjacent not in queue)):
+						queue.insert(0, e_adjacent)
+	#Not found
+	return None</code></pre>
+<figure><img src="images/21.png" alt="Steps of the breadth-first search"><figcaption>Steps of the work of the breadth-first search</figcaption></figure>
+<h3>Chapter 6 — Shortest path problem</h3>
+<figure><img src="images/22.png" alt="Route on a map"></figure>
+<p>To open the chapter, an everyday situation will be illustrated: imagine that you, reader, are leaving work or college after a long and rainy day. The storm, which all afternoon stunned you with the noise of loud thunder and gusts of wind, left at the end of the day some traces of destruction scattered around the city: it caused floods, accidents, fallen trees and the obstruction of many public roads. All this inconvenience culminated in long traffic jams on the main avenues of the city (which you usually take on your way home). The traffic is terrible!</p>
+<p>Afraid of spending hours in slow traffic jams on the way home, you take action before leaving: you look for and install an app on your <em>smartphone</em> that will determine the fastest way home. When you open the app, a service identifies your location through GPS, gets the traffic information for the region, asks you to specify a destination and, finally, determines the route you should follow with your car to get home without wasting much time in traffic jams.</p>
+<p>Problem solved! The shortest path between your current location and your home was found by a <strong><em>path-finding</em></strong> algorithm, and now you can go home calmly.</p>
+<figure><img src="images/23.png" alt="Google Maps solving a shortest path problem"><figcaption>Google Maps solving a shortest path problem</figcaption></figure>
+<p>This is one of the problems that can be solved using graph search algorithms: the <strong>shortest path problem</strong> (also known as <strong><em>path-finding</em></strong>). Solving this problem consists of finding the shortest or least costly path from one vertex of the graph to another. There are several <em>path-finding</em> algorithms, and this chapter briefly covers two of them: <strong><em>Dijkstra's</em></strong> algorithm and the <strong>A*</strong> (A-star) algorithm.</p>
+<h4>6.1 Dijkstra's algorithm</h4>
+<p><em>Dijkstra's</em> algorithm, like any <em>path-finding</em> algorithm, must receive two parameters before starting the search: an initial element and a final element of the graph. The algorithm must respond with a linked list made up of the elements of the graph contained in the shortest path between the initial element and the final element.</p>
+<p>Consider the representation of <em>Dijkstra's</em> algorithm as a function <strong><em>C = dijkstra(Vi, Vf)</em></strong>, where:</p>
+<ul><li><strong><em>Vi</em></strong> is the initial vertex element of the path.</li><li><strong><em>Vf</em></strong> is the final vertex element of the path.</li><li><strong><em>C</em></strong> is the shortest path between <strong><em>Vi</em></strong> and <strong><em>Vf</em></strong>.</li></ul>
+<p>The implementation of <em>Dijkstra's</em> algorithm resembles in some aspects the implementation of a depth-first search. Like depth-first search, <em>Dijkstra's</em> algorithm is an <strong>iterative</strong> algorithm, that is, it performs the search in a long repetitive process. In contrast to depth-first search, <em>Dijkstra's</em> algorithm uses a <strong>priority queue</strong> instead of a simple queue. The <strong>priority queue</strong> is a data grouping structure in which each element is associated with a numerical value called a <strong>key</strong>. The order in which the elements of the priority queue are obtained and removed follows the key value of each of these elements. In <em>Dijkstra's</em> algorithm, the iterations get vertices of the graph and calculate their distances (or cumulative cost) to the origin vertex <strong><em>Vi</em></strong> until the final vertex <strong><em>Vf</em></strong> is found. Each time a vertex is obtained and has its distance to <strong><em>Vi</em></strong> calculated, it is inserted into the priority queue, and its distance to <strong><em>Vi</em></strong> is used as the key. This is where the priority queue comes in: at each iteration, to get the next vertices of the graph to be analyzed, the algorithm looks for the vertex in the queue with the smallest key (that is, the smallest distance to <strong><em>Vi</em></strong>) and gets its adjacent vertices to process. With the help of a set of linked list operations, a sequence of nodes containing vertices is generated throughout the execution of the algorithm and linked according to the adjacencies of the vertices. At the end of the execution of the algorithm, when the vertex <strong><em>Vf</em></strong> is found, there will be a linked list corresponding to <strong><em>C</em></strong> (the shortest path between <strong><em>Vi</em></strong> and <strong><em>Vf</em></strong>).</p>
+<figure><img src="images/24.gif" alt="Dijkstra's algorithm finding a path"><figcaption>Demonstration of the work of Dijkstra's algorithm to find the path of a robot to the green point in an environment with obstacles. Source: <a href="https://commons.wikimedia.org/wiki/File:Dijkstras_progress_animation.gif">https://commons.wikimedia.org/wiki/File:Dijkstras_progress_animation.gif</a></figcaption></figure>
+<h4><strong>6.2 A* algorithm</strong></h4>
+<p><em>Dijkstra's</em> algorithm is quite costly and may not be a viable solution in some situations because of the time it takes to give an answer. A less costly alternative to <em>Dijkstra's</em> algorithm is the <strong>A*</strong> (<em>A-star</em>) algorithm. This algorithm closely resembles <em>Dijkstra's</em> algorithm. The difference between the <strong>A*</strong> algorithm and <em>Dijkstra's</em> algorithm lies in the fact that the <strong>A*</strong> algorithm uses a <strong>heuristic</strong> to optimize the process of searching for the shortest path. This <strong>heuristic</strong> is basically an estimate of the distance from any vertex <strong><em>V</em></strong> of the graph to the final vertex <strong><em>Vf</em></strong>. In the <strong>A*</strong> algorithm, the keys of the vertices in the queue are calculated as the sum of the exact distance to <strong><em>Vi</em></strong> and the heuristic distance to <strong><em>Vf</em></strong>. Consequently, at each iteration, the algorithm will always pick for analysis the vertices that are probably closest to <strong><em>Vf</em></strong>, and will need to analyze fewer vertices than <em>Dijkstra's</em> algorithm to find the shortest path between <strong><em>Vi</em></strong> and <strong><em>Vf</em></strong>.</p>
+<p>The less erratic the heuristic, the less costly the work of the algorithm.</p>
+<figure><img src="images/25.gif" alt="A* algorithm finding a path"><figcaption>Demonstration of the work of the <strong>A*</strong> algorithm to find the path of a robot to the green point in an environment with obstacles. Source: <a href="https://commons.wikimedia.org/wiki/File:Weighted_A_star_with_eps_5.gif">https://commons.wikimedia.org/wiki/File:Weighted_A_star_with_eps_5.gif</a></figcaption></figure>
+<h3>References</h3>
+<ul><li>Book: <strong>Grafos — Uma Introdução</strong> (Graphs — An Introduction), by <strong>Samuel Jurkiewicz</strong>.</li><li><strong>Chapter 3</strong> of the book <strong>Artificial Intelligence</strong>, by <strong>Stuart Russell</strong> and <strong>Peter Norvig</strong>. Third edition, translated into Portuguese by <strong>Regina Célia Simille de Macedo</strong>. Publishers: <strong>Elsevier</strong> and <strong>Campus</strong>.</li></ul>

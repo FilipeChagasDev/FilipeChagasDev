@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>
+Quantum Computing in Logistics | Filipe Chagas Ferraz
+</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="One of the areas in which applied quantum computing seems promising is combinatorial optimization, which covers many real logistics problems. This article (originally written in Portuguese) presents logistics problems such as vehicle routing and facility location, and quantum optimization methods that can be applied to them: Grover Adaptive Search (GAS), Quantum Annealing (QA), the Quantum Approximate Optimization Algorithm (QAOA) and Bias Field Digitalized Counterdiabatic Quantum Optimization (BF-DCQO).">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../../favicon.svg"> 
+    
+<link rel="canonical" href="https://filipechagasdev.github.io/FilipeChagasDev/blog-articles/quantum-computing-logistics/">
+
+<link rel="alternate" hreflang="en" href="https://filipechagasdev.github.io/FilipeChagasDev/blog-articles/quantum-computing-logistics/">
+<link rel="alternate" hreflang="pt" href="https://medium.com/cq-em-portugu%C3%AAs/computa%C3%A7%C3%A3o-qu%C3%A2ntica-na-log%C3%ADstica-7c1bb3e4065d">
+
+<style>
+	.blog-post-body figure { margin: 2rem 0; text-align: center; }
+	.blog-post-body figure img { max-width: 100%; height: auto; }
+	.blog-post-body figcaption { color: #8f8f8f; font-size: 0.875rem; margin-top: 0.5rem; }
+	.blog-post-body pre { background: #f5f5f5; border-radius: 4px; padding: 1rem; font-size: 0.875rem; tab-size: 4; }
+	.blog-post-body blockquote { border-left: 3px solid #292929; padding-left: 1rem; font-style: italic; }
+	.original-notice { background: #f5f5f5; border-left: 4px solid #0f4c81; padding: 0.75rem 1rem; font-size: 0.95rem; }
+</style>
+
+    
+    <!-- FontAwesome JS-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../../assets/css/theme-1.css">
+</head> 
+
+<body>
+    <header class="header text-center">
+		<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="../../index.html">Filipe Chagas Ferraz</a></h1>
+		</div>
+
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>-->
+
+			<!--<div id="navigation" class="collapse navbar-collapse flex-column">-->
+			<div id="navigation" class="navbar-collapse flex-column">
+				<div class="profile-section pt-3 pt-lg-0">
+					<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="../../assets/images/profile.jpg" alt="image" >			
+					</div>
+					<div class="d-block d-md-none">
+						<div class="align-items-center">
+							<h6 class="mb-0 pt-lg-4" style="color: white;">Filipe Chagas Ferraz</h2>
+							<img class="profile-image-small m-3 rounded-circle mx-auto" src="../../assets/images/profile.jpg" alt="image" >	
+						</div>
+					</div>
+					<div class="bio mb-3">
+						<p>Tech Teacher | B.S in Computer Engineering</p>
+						<p class="font-weight-lighter">
+							Image and Signal Processing | 
+							Machine Learning | 
+							Data Science | 
+							Quantum Algorithms | 
+							Combinatorial Optimization | 
+							Embedded Software
+						</p>
+						  
+					</div><!--//bio-->
+
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/filipe-chagas-ferraz-16a9371b8"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a target="_blank" href="https://github.com/FilipeChagasDev"><i class="fab fa-github-alt fa-fw"></i></a></li>
+						<li class="list-inline-item"><a target="_blank" href="http://lattes.cnpq.br/7233761093126361"><i class="ai ai-lattes"></i></a></li>
+			        </ul><!--//social-list-->
+			        <!--<hr>--> 
+				</div><!--//profile-section-->
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+
+		
+<article class="blog-post px-3 py-5 p-md-5">
+	<div class="container">
+		<header class="blog-post-header">
+			<h2 class="title mb-2">Quantum Computing in Logistics</h2>
+			<div class="meta mb-3">
+				<span>Blog Article</span>
+				<span class="time">Quantum Computing; Operations Research</span>
+				<span>08-Jun-2025</span>
+			</div>
+		</header>
+
+		<div class="original-notice mb-4">
+			This is an English translation of an article originally written in Portuguese and published on Medium.
+			<a href="https://medium.com/cq-em-portugu%C3%AAs/computa%C3%A7%C3%A3o-qu%C3%A2ntica-na-log%C3%ADstica-7c1bb3e4065d" target="_blank" data-goatcounter-click="original/blog-articles/quantum-computing-logistics" data-goatcounter-title="Quantum Computing in Logistics (original)">Read the original article in Portuguese &rarr;</a>
+		</div>
+
+		<div class="blog-post-body">
+<figure><img src="images/01.png" alt="Illustration of a facility location problem"><figcaption>Illustration of a facility location problem. Source: <a href="https://optimization.cbe.cornell.edu/index.php?title=Facility_location_problem">https://optimization.cbe.cornell.edu/index.php?title=Facility_location_problem</a></figcaption></figure>
+<p>One of the areas in which applied quantum computing seems promising is combinatorial optimization, which covers many real logistics problems. Three examples of problems of this kind are:</p>
+<ul><li><strong>Vehicle Routing Problem:</strong> given a set of <em>N</em> geographic points and <em>M</em> vehicles, what are the <em>M</em> most efficient routes (with the lowest time and energy consumption) that, together, pass through all the <em>N</em> points?</li></ul>
+<figure><img src="images/02.png" alt="Illustration of the vehicle routing problem"><figcaption>Illustration of the vehicle routing problem. DOI: 10.1109/ICoAC.2017.8441175</figcaption></figure>
+<ul><li><strong>Facility Location Problem:</strong> how to position a set of <em>N</em> logistics centers in a region (neighborhood, city, state, etc.) in a way that minimizes costs such as transportation and rent?</li></ul>
+<figure><img src="images/03.png" alt="Illustration of the facility location problem"><figcaption>Illustration of the facility location problem. DOI: 10.1057/s41274–016–0155–6</figcaption></figure>
+<ul><li><strong>Bin Packing Problem:</strong> given a set of <em>N</em> objects to transport, each one with a volume and a weight, and a set of up to <em>M</em> containers, each one with a volume and load capacity, how to distribute the <em>N</em> objects among the containers in a way that minimizes the number of containers used?</li></ul>
+<figure><img src="images/04.png" alt="Illustration of the bin packing problem"><figcaption>Illustration of the bin packing problem. DOI: 10.1155/2017/9781307</figcaption></figure>
+<p>These three optimization problems belong to the <strong>NP-hard</strong> computational class. Problems of this class have no known algorithms that solve them exactly in tractable and deterministic time. So, to solve them, we resort to two groups of algorithms that find “ok” solutions, but not necessarily perfect ones (global optima): <strong>greedy algorithms</strong> and <strong>metaheuristics</strong>.</p>
+<ul><li><strong>Greedy algorithms</strong> are those that use some “trick” to quickly find an easy solution in a fixed time (which depends on the number of variables of the problem), without analyzing several possible solutions. Example: to find a good travel route <em>[r₁, r₂, …, rₙ]</em> (where each <em>rᵢ</em> is a stop) passing through a set of <em>N</em> geographic points <em>P={p₁, p₂, …, pₙ}</em>, a greedy strategy that can be used is to choose the starting point <em>r₁∈P</em>, choose the point <em>pᵢ</em> closest to <em>r₁</em> as <em>r₂</em>, and repeat the second step for all the next stops of the route until <em>rₙ</em>. The solution is good and easy to compute, but it is only the best possible one in very specific cases.</li><li><strong>Metaheuristic algorithms</strong> are more complex and costly. They search for a solution, often testing several possible ones, using some logical process that serves as a “guide” towards the best solutions of the problem. The execution time of these algorithms is usually adjustable, and the quality of the solution found is not deterministic — it depends on luck and on how long you let the algorithm run.</li></ul>
+<p>To solve a logistics optimization problem using a metaheuristic, it is necessary to build a model with the following elements:</p>
+<ul><li>a sequence of <strong>binary variables</strong> <em>s=[s₁, s₂, …, sₙ]∈𝔹ⁿ</em> that, together, represent a configuration or solution of the problem;</li><li>a <strong>cost function</strong> <em>c=f(s)</em> that calculates the logistics cost <em>c∈ℝ</em> of the solution <em>s∈𝔹ⁿ</em>;</li><li>if necessary, one or more <strong>constraints</strong>. Each constraint is a proposition <em>g(s)∈{T,F}</em> that <em>s</em> must satisfy to be considered a feasible solution.</li></ul>
+<p>Solving an optimization problem means finding a solution <em>s=[s₁, s₂, …, sₙ]</em> that minimizes the logistics cost <em>c</em>.</p>
+<p>In the scientific literature on quantum computing, there are several proposed metaheuristics that can be applied to logistics problems such as the three mentioned above. In this article, I cover four: <strong>GAS</strong>, <strong>QA</strong>, <strong>QAOA</strong> and <strong>BF-DCQO</strong>.</p>
+<h3>Grover Adaptive Search (GAS)</h3>
+<figure><img src="images/05.png" alt="Pseudocode of the GAS algorithm"><figcaption>Pseudocode of the GAS algorithm, taken from the paper by Gilliam, Woerner and Gonciulea.</figcaption></figure>
+<p>GAS is an optimization metaheuristic based on Grover's quantum search algorithm.</p>
+<p>Grover's search is a probabilistic method that aims to find the sequences of values (<em>s₁, s₂, …, sₙ</em>) that satisfy a proposition <em>p(s₁, s₂, …, sₙ)∈{T, F}</em>. The GAS method uses Grover's search as a subroutine, running it several times to find increasingly better solutions to the optimization problem, as follows:</p>
+<ol><li>Using a random or greedy method, the logistics cost <em>c⁽¹⁾</em> of a locally optimal solution <em>s⁽¹⁾</em> is calculated.</li><li>Grover's search is run to find a solution <em>s⁽²⁾</em> whose logistics cost <em>c⁽²⁾</em> is lower than the cost <em>c⁽¹⁾</em> found previously.</li><li>The procedure of step 2 is repeated several times, always with the aim of finding a new solution <em>s⁽ⁱ⁺¹⁾</em> with a cost <em>c⁽ⁱ⁺¹⁾</em> lower than <em>c⁽ⁱ⁾</em>.</li></ol>
+<figure><img src="images/06.png" alt="Evolution of the probabilities of the solutions with GAS"><figcaption>Charts taken from the paper by Gilliam, Woerner and Gonciulea, showing the evolution of the probabilities of obtaining the solutions of an optimization problem with GAS.</figcaption></figure>
+<p><strong>Strengths of GAS:</strong></p>
+<ul><li>It is relatively simple, easy to understand and to implement. The other three quantum optimization methods that I cover in this article are much more complicated.</li></ul>
+<p><strong>Weaknesses of GAS:</strong></p>
+<ul><li>GAS is a method that uses many <em>qubits</em>. In it, the logistics costs are computed as a finite and quantized set of integer or decimal numbers. The greater the precision required to calculate the costs, the more <em>qubits</em> are used.</li><li>In GAS, as the optimization process advances, the quantum processing time required for each round of Grover's search increases. Current quantum devices have limited coherence time, which makes long search rounds impossible.</li></ul>
+<p><strong>Bibliography:</strong></p>
+<ul><li><em>Grover Adaptive Search for Constrained Polynomial Binary Optimization</em>, by Austin Gilliam, Stefan Woerner, and Constantin Gonciulea. DOI: https://doi.org/10.22331/q-2021-04-08-428</li><li><em>A Fast Quantum Mechanical Algorithm for Database Search</em>, by Lov Grover. DOI: <a href="https://doi.org/10.48550/arXiv.quant-ph/9605043">https://doi.org/10.48550/arXiv.quant-ph/9605043</a></li></ul>
+<h3>Quantum Annealing (QA)</h3>
+<figure><img src="images/07.png" alt="Conceptual image of how a quantum annealer works"><figcaption>Conceptual image of how a quantum annealer works. DOI: 10.5194/npg-31–237–2024</figcaption></figure>
+<p>QA is a quantum optimization technique initially proposed by Kadowaki and Nishimori in 1998, based on the <strong>quantum adiabatic theorem</strong>.</p>
+<p>QA requires special-purpose analog quantum <em>hardware</em>. It is not possible to run this technique on digital (general-purpose) quantum computers such as IBM's. A company that stands out in the development of <em>hardware</em> for QA is <strong>D-Wave</strong>.</p>
+<p>At the <em>hardware</em> level, a <em>Quantum Annealer</em> such as D-Wave's is an electronic device that uses superconducting <em>qubits</em> interconnected and controlled by extremely precise magnetic fluxes. These <em>qubits</em> form a physical system that models the optimization problem.</p>
+<p>Throughout an optimization task, the magnetic fluxes are changed gradually and slowly, causing the system to evolve <strong>adiabatically</strong> into a solution state. At the end of the process, the <em>qubits</em> are measured, collapsing into a classical sequence of bits that represents a solution (or a good approximation) of the optimization problem.</p>
+<p><strong>Strengths of QA:</strong></p>
+<ul><li>QA is highly scalable in number of <em>qubits</em>. Currently, there are already <em>quantum annealers</em> with thousands of <em>qubits</em>, while digital quantum computers still operate with a few hundred <em>qubits</em>.</li><li><em>Quantum annealers</em> are more noise-tolerant than digital quantum computers.</li></ul>
+<p><strong>Weaknesses of QA:</strong></p>
+<ul><li>There are few QA service options on the market.</li><li>In the process of programming a <em>quantum annealer</em>, an <em>embedding</em> step is usually used. In this step, the number of <em>qubits</em> required to solve the problem may increase significantly.</li><li>If the <em>annealing</em> time is not slow enough, the system tends to evolve non-adiabatically, which harms the quality of the results.</li></ul>
+<p><strong>Bibliography:</strong></p>
+<ul><li><em>Quantum Annealing in The Transverse Ising Model</em>, by Tadashi Kadowaki and Hidetoshi Nishimori. DOI: <a href="https://doi.org/10.1103/PhysRevE.58.5355">https://doi.org/10.1103/PhysRevE.58.5355</a></li><li><em>What is Quantum Annealing?</em>, by D-Wave. URL: <a href="https://docs.dwavequantum.com/en/latest/quantum_research/quantum_annealing_intro.html#qpu-quantum-annealing-intro">https://docs.dwavequantum.com/en/latest/quantum_research/quantum_annealing_intro.html#qpu-quantum-annealing-intro</a></li><li><em>Annealing Implementation and Controls</em>, by D-Wave. URL: <a href="https://docs.dwavequantum.com/en/latest/quantum_research/annealing.html#qpu-annealing">https://docs.dwavequantum.com/en/latest/quantum_research/annealing.html#qpu-annealing</a></li></ul>
+<h3>Quantum Approximate Optimization Algorithm (QAOA)</h3>
+<figure><img src="images/08.png" alt="Simplified diagram of the QAOA algorithm"><figcaption>Simplified diagram of the QAOA algorithm. Source: Matlab Help Center</figcaption></figure>
+<p>QAOA is a hybrid (quantum and classical) optimization algorithm from the group of <strong>variational quantum algorithms (VQAs)</strong>.</p>
+<p>VQAs are algorithms in which a digital quantum computer is used to run a parameterized quantum subroutine. The subroutine is run multiple times, and a classical optimizer adjusts its parameters at each iteration.</p>
+<p>The quantum subroutine of QAOA has 3 steps:</p>
+<ol><li>preparation of an initial quantum superposition state;</li><li>addition of <em>N</em> layers of parameterized quantum instructions, where each layer is composed of a <strong>cost operator</strong> and a <strong>mixing operator</strong>;</li><li>measurement of the quantum state, which results in a classical sequence of bits from which a solution <em>s⁽ⁱ⁾</em> is obtained.</li></ol>
+<p>The <strong>cost operator</strong> serves, roughly speaking, to calculate the logistics cost of each possible solution of the optimization problem. In each layer, this operator has a parameter <em>γᵢ</em>.</p>
+<p>The <strong>mixing operator</strong>, in turn, serves to induce changes in the quantum state of the <em>qubits</em>, gradually leading them to the solution state. In each layer, a parameter <em>βᵢ</em> is associated with the respective mixing operator.</p>
+<p>The parameters <em>[γ₁,…,γₙ,β₁,…,βₙ]</em> are iteratively adjusted by a classical numerical optimization algorithm with the goal of reducing the cost <em>c⁽ⁱ⁾</em> of each solution <em>s⁽ⁱ⁾</em>. To make these adjustments, gradient methods similar to those used to train neural networks can be used.</p>
+<p><strong>Strengths of QAOA:</strong></p>
+<ul><li>QAOA is designed to fit well with the limited digital quantum computers we have today. The quantum processing time of steps 1–3 is adjustable, constant over the iterations, and not necessarily long.</li><li>It does not require special-purpose quantum <em>hardware</em>.</li><li>In QAOA, the precision of the logistics costs does not depend on the number of <em>qubits</em>, since they are computed as eigenvalues of the cost operator.</li></ul>
+<p><strong>Weaknesses of QAOA:</strong></p>
+<ul><li>A typical obstacle of variational quantum algorithms are <em>Barren Plateaus</em> (BPs). In simple terms, BPs are “traps” into which the classical computer can fall during the process of adjusting the parameters <em>[γ₁,…,γₙ,β₁,…,βₙ]</em>, stalling the optimization.</li><li>The noise of current quantum computers also hinders the adjustment of the parameters.</li><li>The logistics cost is computed approximately by the cost operator. The more precise this approximation, the longer the required quantum processing time.</li></ul>
+<p><strong>Bibliography:</strong></p>
+<ul><li><em>A Quantum Approximate Optimization Algorithm</em>, by Edward Farhi, Jeffrey Goldstone and Sam Gutmann. DOI: <a href="https://doi.org/10.48550/arXiv.1411.4028">https://doi.org/10.48550/arXiv.1411.4028</a></li><li><em>A Review on Quantum Approximate Optimization Algorithm and its Variants</em>, by Kostas Blekos, Dean Brand, Andrea Ceschini, Chiao-Hui Chou, Rui-Hao Li, Komal Pandya and Alessandro Summer. DOI: <a href="https://doi.org/10.1016/j.physrep.2024.03.002">https://doi.org/10.1016/j.physrep.2024.03.002</a></li></ul>
+<h3>Bias Field Digitalized Counterdiabatic Quantum Optimization (BF-DCQO)</h3>
+<figure><img src="images/09.png" alt="Illustration of BF-DCQO"><figcaption>Illustration of BF-DCQO taken from the original paper by Cadavid et al.</figcaption></figure>
+<p>BF-DCQO is a metaheuristic inspired by the quantum adiabatic theorem — the same one that underlies the QA technique. The algorithm was published in April of this year (2025) by Alejandro Cadavid, Archismita Dalal, Anton Simen, Enrique Solano and Narendra N. Hegade.</p>
+<p>BF-DCQO is an approximate and digitized adiabatic quantum optimization (AQO) method that can be run on general-purpose quantum computers.</p>
+<p>An important feature of the BF-DCQO algorithm is that it adds a counterdiabatic term to the system, which suppresses unwanted non-adiabatic transitions in the state of the <em>qubits</em>. As explained in the section about QA, non-adiabatic transitions harm the quality of the solutions.</p>
+<p>Like QAOA, BF-DCQO splits the quantum processing into “rounds” of a quantum subroutine of fixed and short duration, while the processing between rounds is done by a classical computer. However, in contrast to QAOA, BF-DCQO is not a variational algorithm (that is, it does not involve classical optimization of parameters). The work of the classical computer is much lighter in BF-DCQO than in QAOA.</p>
+<p><strong>Strengths of BF-DCQO:</strong></p>
+<ul><li>It does not require special-purpose quantum <em>hardware</em>.</li><li>The quantum processing rounds are fast, which reduces noise.</li><li>Since it is not variational, its classical processing is light and does not suffer from <em>Barren Plateaus</em>.</li><li>As in QAOA, the precision of the logistics costs in BF-DCQO does not depend on the number of <em>qubits</em>.</li></ul>
+<p>Since this is a new technique that I have started studying recently, I do not have a list of weaknesses that I can point out with confidence.</p>
+<p><strong>Bibliography:</strong></p>
+<ul><li><em>Bias-field Digitized Counterdiabatic Quantum Optimization</em>, by Alejandro Cadavid, Archismita Dalal, Anton Simen, Enrique Solano and Narendra N. Hegade. DOI: <a href="https://doi.org/10.1103/PhysRevResearch.7.L022010">https://doi.org/10.1103/PhysRevResearch.7.L022010</a></li></ul>
+<h3>Final remarks</h3>
+<p>This article does not aim to benchmark optimization methods applied to logistics, nor to claim that the quantum approaches described outperform existing classical methods. The performance of any metaheuristic depends on several factors, such as the convexity of the problem, the number of variables involved, the polynomial degree of the cost function and the nature of the constraints. In the case of quantum metaheuristics, there is also a strong dependence on specific <em>hardware</em> characteristics, such as coherence time, number of available <em>qubits</em> and the connectivity between them.</p>
+<p><strong>This article is also on LinkedIn (in Portuguese): </strong><a href="https://www.linkedin.com/pulse/computa%C3%A7%C3%A3o-qu%C3%A2ntica-na-log%C3%ADstica-filipe-chagas-ferraz-lrt4f">https://www.linkedin.com/pulse/computa%C3%A7%C3%A3o-qu%C3%A2ntica-na-log%C3%ADstica-filipe-chagas-ferraz-lrt4f</a></p>
+
+		</div>
+
+		<div class="mt-5">
+			<a href="../../index.html">&larr; Back to all contents</a>
+		</div>
+	</div>
+</article>
+
+
+	    <footer class="footer text-center py-2 theme-bg-dark">
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+	    </footer>
+
+    </div><!--//main-wrapper-->
+       
+    <!-- Javascript -->          
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+	
+	
+</body>
+</html> 

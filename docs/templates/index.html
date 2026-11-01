@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{# Internal pages open in the same tab; external links open in a new tab and are tracked as GoatCounter events #}
+{% macro link_attrs(post) -%}
+href="{{post.link}}"{% if post.external %} target="_blank" data-goatcounter-click="outbound/{{post.id}}" data-goatcounter-title="{{post.title | e}}"{% endif %}
+{%- endmacro %}
+
 {% block page_title %}
 Filipe Chagas Ferraz Website
 {% endblock %}
@@ -112,7 +117,7 @@ Filipe Chagas Ferraz Website
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{post.thumbnail}}" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
-					<h3 class="title mb-1"><a target="_blank" href="{{post.href}}">{{post.title}}</a></h3>
+					<h3 class="title mb-1"><a {{ link_attrs(post) }}>{{post.title}}</a></h3>
 					<div class="meta mb-1">
 						<span>{{post.contenttype}}</span>
 						{% if post.contentsubtype is string %}
@@ -128,7 +133,7 @@ Filipe Chagas Ferraz Website
 						<img class="img-fluid post-thumb-2 d-block d-md-none" src="{{post.thumbnail}}" alt="image"> <!--Visible only in smartphones -->
 					</div>
 					<div class="intro">{{post.abstract}}</div>
-					<a class="more-link" target="_blank" href="{{post.href}}">Read more &rarr;</a>
+					<a class="more-link" {{ link_attrs(post) }}>Read more &rarr;</a>
 				</div><!--//media-body-->
 			</div><!--//media-->
 		</div><!--//item-->
@@ -139,26 +144,18 @@ Filipe Chagas Ferraz Website
 
 {% block script_section %}
 <script>
-	const original_posts = document.getElementsByClassName('post');
-	let posts = [];
-
-	for (let i = 0; i < original_posts.length; i++) {
-		posts.push(original_posts[i].cloneNode(true));
-	}
+	// Posts are hidden/shown instead of re-created, so that the GoatCounter click listeners are kept
+	const posts = document.getElementsByClassName('post');
 
 	function filterContentType(contenttype) {
-		document.getElementById('posts').innerHTML = '';
 		for (let i = 0; i < posts.length; i++) {
-			if (posts[i].getAttribute('contenttype') === contenttype) {
-				document.getElementById('posts').appendChild(posts[i]);
-			}
+			posts[i].style.display = posts[i].getAttribute('contenttype') === contenttype ? '' : 'none';
 		}
 	}
 
 	function resetFilters() {
-		document.getElementById('posts').innerHTML = '';
 		for (let i = 0; i < posts.length; i++) {
-			document.getElementById('posts').appendChild(posts[i]);
+			posts[i].style.display = '';
 		}
 	}
 </script>

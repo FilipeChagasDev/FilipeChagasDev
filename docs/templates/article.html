@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+{{post.title}} | Filipe Chagas Ferraz
+{% endblock %}
+
+{% block page_description %}{{post.abstract | e}}{% endblock %}
+
+{% block head_extra %}
+<link rel="canonical" href="{{site_url}}{{post.link}}">
+{% if post.language_original %}
+<link rel="alternate" hreflang="en" href="{{site_url}}{{post.link}}">
+<link rel="alternate" hreflang="{{post.language_original}}" href="{{post.href}}">
+{% endif %}
+<style>
+	.blog-post-body figure { margin: 2rem 0; text-align: center; }
+	.blog-post-body figure img { max-width: 100%; height: auto; }
+	.blog-post-body figcaption { color: #8f8f8f; font-size: 0.875rem; margin-top: 0.5rem; }
+	.blog-post-body pre { background: #f5f5f5; border-radius: 4px; padding: 1rem; font-size: 0.875rem; tab-size: 4; }
+	.blog-post-body blockquote { border-left: 3px solid #292929; padding-left: 1rem; font-style: italic; }
+	.original-notice { background: #f5f5f5; border-left: 4px solid #0f4c81; padding: 0.75rem 1rem; font-size: 0.95rem; }
+</style>
+{% endblock %}
+
+{% block main_content %}
+<article class="blog-post px-3 py-5 p-md-5">
+	<div class="container">
+		<header class="blog-post-header">
+			<h2 class="title mb-2">{{post.title}}</h2>
+			<div class="meta mb-3">
+				<span>{{post.contenttype}}</span>
+				<span class="time">{{post.contenttopic | join('; ')}}</span>
+				<span>{{post.date_str}}</span>
+			</div>
+		</header>
+
+		<div class="original-notice mb-4">
+			This is an English translation of an article originally written in {{post.language}} and published on Medium.
+			<a href="{{post.href}}" target="_blank" data-goatcounter-click="original/{{post.id}}" data-goatcounter-title="{{post.title | e}} (original)">Read the original article in {{post.language}} &rarr;</a>
+		</div>
+
+		<div class="blog-post-body">
+{{content}}
+		</div>
+
+		<div class="mt-5">
+			<a href="{{root}}index.html">&larr; Back to all contents</a>
+		</div>
+	</div>
+</article>
+{% endblock %}

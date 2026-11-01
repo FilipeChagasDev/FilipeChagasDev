@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>
+UNIX, the Father of Modern Operating Systems | Filipe Chagas Ferraz
+</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="First released in 1969, UNIX is known to this day as one of the most important operating systems in history. This article (originally written in Portuguese) tells the history of UNIX, from its MULTICS origins to its rewriting in the C language, and presents its main features, such as multi-user operation, simultaneous processing, modular design, portability, pipes and the &#34;everything is a file&#34; philosophy, and its influence on UNIX-like systems such as BSD, MINIX and Linux.">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../../favicon.svg"> 
+    
+<link rel="canonical" href="https://filipechagasdev.github.io/FilipeChagasDev/blog-articles/unix-history/">
+
+<link rel="alternate" hreflang="en" href="https://filipechagasdev.github.io/FilipeChagasDev/blog-articles/unix-history/">
+<link rel="alternate" hreflang="pt" href="https://medium.com/programadores-ajudando-programadores/a-hist%C3%B3ria-do-unix-o-pai-dos-sistemas-operacionais-modernos-2795d0fd564b">
+
+<style>
+	.blog-post-body figure { margin: 2rem 0; text-align: center; }
+	.blog-post-body figure img { max-width: 100%; height: auto; }
+	.blog-post-body figcaption { color: #8f8f8f; font-size: 0.875rem; margin-top: 0.5rem; }
+	.blog-post-body pre { background: #f5f5f5; border-radius: 4px; padding: 1rem; font-size: 0.875rem; tab-size: 4; }
+	.blog-post-body blockquote { border-left: 3px solid #292929; padding-left: 1rem; font-style: italic; }
+	.original-notice { background: #f5f5f5; border-left: 4px solid #0f4c81; padding: 0.75rem 1rem; font-size: 0.95rem; }
+</style>
+
+    
+    <!-- FontAwesome JS-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../../assets/css/theme-1.css">
+</head> 
+
+<body>
+    <header class="header text-center">
+		<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="../../index.html">Filipe Chagas Ferraz</a></h1>
+		</div>
+
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>-->
+
+			<!--<div id="navigation" class="collapse navbar-collapse flex-column">-->
+			<div id="navigation" class="navbar-collapse flex-column">
+				<div class="profile-section pt-3 pt-lg-0">
+					<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
+				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="../../assets/images/profile.jpg" alt="image" >			
+					</div>
+					<div class="d-block d-md-none">
+						<div class="align-items-center">
+							<h6 class="mb-0 pt-lg-4" style="color: white;">Filipe Chagas Ferraz</h2>
+							<img class="profile-image-small m-3 rounded-circle mx-auto" src="../../assets/images/profile.jpg" alt="image" >	
+						</div>
+					</div>
+					<div class="bio mb-3">
+						<p>Tech Teacher | B.S in Computer Engineering</p>
+						<p class="font-weight-lighter">
+							Image and Signal Processing | 
+							Machine Learning | 
+							Data Science | 
+							Quantum Algorithms | 
+							Combinatorial Optimization | 
+							Embedded Software
+						</p>
+						  
+					</div><!--//bio-->
+
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/filipe-chagas-ferraz-16a9371b8"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a target="_blank" href="https://github.com/FilipeChagasDev"><i class="fab fa-github-alt fa-fw"></i></a></li>
+						<li class="list-inline-item"><a target="_blank" href="http://lattes.cnpq.br/7233761093126361"><i class="ai ai-lattes"></i></a></li>
+			        </ul><!--//social-list-->
+			        <!--<hr>--> 
+				</div><!--//profile-section-->
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+
+		
+<article class="blog-post px-3 py-5 p-md-5">
+	<div class="container">
+		<header class="blog-post-header">
+			<h2 class="title mb-2">UNIX, the Father of Modern Operating Systems</h2>
+			<div class="meta mb-3">
+				<span>Blog Article</span>
+				<span class="time">Operating Systems; History of Computing</span>
+				<span>20-Jan-2019</span>
+			</div>
+		</header>
+
+		<div class="original-notice mb-4">
+			This is an English translation of an article originally written in Portuguese and published on Medium.
+			<a href="https://medium.com/programadores-ajudando-programadores/a-hist%C3%B3ria-do-unix-o-pai-dos-sistemas-operacionais-modernos-2795d0fd564b" target="_blank" data-goatcounter-click="original/blog-articles/unix-history" data-goatcounter-title="UNIX, the Father of Modern Operating Systems (original)">Read the original article in Portuguese &rarr;</a>
+		</div>
+
+		<div class="blog-post-body">
+<h4>First released in 1969, it is known to this day as one of the most important operating systems in history.</h4>
+<figure><img src="images/01.jpeg" alt="Dennis Ritchie and Ken Thompson in front of a PDP-11 computer"><figcaption>Dennis Ritchie and Ken Thompson sitting in front of a PDP-11 computer. Photo credit: dmr (source: <a href="http://thetamnews.org/opinion/dennis-ritchie-computer-scientist-dies-at-70/">http://thetamnews.org/opinion/dennis-ritchie-computer-scientist-dies-at-70/</a> )</figcaption></figure>
+<p>Operating systems aim to establish an abstraction layer between hardware and software, relieving the programmer of the burden of working directly with the specifics of the architecture of the computer in question. They make computers easier to operate, both for programmers and for users.</p>
+<p>The UNIX operating system has interesting features implemented in a relatively simple way. In it, operation with multiple users and multiple simultaneous processes was successfully implemented. It also has a modular architecture, allowing software components to be added and removed dynamically in their entirety, eliminating the need to recompile the source code of the whole system every time a new module needs to be included. In addition, it can be adapted to different computers relatively easily, since it is programmed in the C language.</p>
+<p>In its first releases, UNIX was an open-source project. It was studied, modified and rewritten by many groups of developers, who created a large family of <em>UNIX-like</em> operating systems. Most modern operating systems have, in some way, drunk from the UNIX fountain. It is worthwhile for anyone interested in information technology to know a little about the history of this old and revolutionary software project. Below, in this article, are some details about the historical context and the characteristics of UNIX.</p>
+<h4>The first operating systems were entirely written in assembly languages</h4>
+<figure><img src="images/02.jpeg" alt="Example of PDP-7 assembly code"><figcaption>Example of assembly code for the PDP-7 (source: <a href="https://github.com/DoctorWkt/pdp7-unix">https://github.com/DoctorWkt/pdp7-unix</a>)</figcaption></figure>
+<p>The first operating systems were usually developed using assembly languages (usually called by the name of the family of languages they belong to: “<em>Assembly</em>”). These programming languages are, basically, readable notations for the instructions of their respective computer architectures. In practice, an instruction consists of a combination of bits that, when placed in the control unit of the processor, induces a certain activity in the electronic circuit of the computer. Each computer architecture has its own instruction set and, therefore, its own assembly language.</p>
+<p>When assembly languages are used to build very complex programs, their development demands too much time and effort from programmers. Moreover, there are a number of needs that they, alone, are not able to meet. One example of a need that assembly languages do not meet is <strong>portability</strong>. Each computer architecture has its own assembly language, with its own syntax. If, for example, there is a need to write a program that works on several different architectures, and the assembly languages of the respective architectures are used in its development, this program will have a unique source code for each of the architectures, and these codes will differ in syntax and logic. Another example of a shortcoming of assembly languages is related to their low level of abstraction, which makes it hard to interpret algorithms and to identify logic errors in more elaborate applications, due to the extreme complexity that the source code takes on as the program is developed.</p>
+<h4><strong>CTSS and MULTICS, the two main ancestors of UNIX</strong></h4>
+<p>Computers often need to meet the demand of several users using them simultaneously and running several tasks at the same time. What makes it possible for multiple users and multiple processes to run “simultaneously” on a single processor is a technique called <em>time-sharing</em>.</p>
+<p>In <em>time-sharing</em> operating systems, the execution of instructions on the processor alternates between processes. In a situation where there are, for example, two processes running “at the same time” on the same processor, the <em>time-sharing</em> operating system keeps switching the execution of these two processes: it chooses a process to run and, after a few fractions of a second, interrupts the execution of this process to put another process into execution. This process switch is done periodically. It is triggered by a timer hardware (which is usually a functional block of the <em>chipset</em>) through an <strong><em>IRQ</em></strong> (<em>interrupt request</em>). When the <em>IRQ</em> is triggered by the timer, the processor interrupts the execution of the current program to run an operating system routine, which in this case is the process switching routine. This abrupt switching of processes through hardware interrupts is called <strong>preemption</strong>. <em>Time-sharing</em> operating systems have preemptive scheduling.</p>
+<p>The first operating system to implement <em>time-sharing</em> was <strong>CTSS</strong> (<em>Compatible Time-Sharing System</em>), developed at MIT. CTSS was first demonstrated running on an IBM 7094 computer in 1961.</p>
+<p>After the development of CTSS, MIT, together with <em>Bell</em> <em>Labs</em> and <em>General</em> <em>Electric</em>, tried to create a more ambitious operating system, which was named <strong>MULTICS</strong> (<em>Multiplexed Information and Computing Service</em>). This system aimed to run on a huge computer capable of supporting hundreds of connected users. The creators of the project were interested in creating an operating system capable of supporting <strong>computing utilities</strong>: companies specialized in distributing, in a shared way, the processing time of a single large computer to several remotely connected users.</p>
+<p>The MULTICS project was relatively successful. <em>Bell Labs</em> and <em>General Electric</em> abandoned the project in its early phases but, with a lot of effort from the developers, MIT managed to make MULTICS succeed and commercialize it. Even so, this system did not meet the expectations of its developers because, even though it was very optimized, computers had little processing power for a very high demand.</p>
+<h4><strong>The beginning of the development of UNIX</strong></h4>
+<figure><img src="images/03.jpeg" alt="Ken Thompson and Dennis Ritchie"><figcaption>Ken Thompson (left) and Dennis Ritchie (right), the creators of UNIX</figcaption></figure>
+<p>Some time later, the scientist Ken Thompson, from <em>Bell Labs</em>, who had worked on the development of MULTICS until the company abandoned the project, started writing a new operating system based on MULTICS, using a PDP-7 computer. This new system was simpler than the old MULTICS, and was named <strong>UNIX</strong>.</p>
+<figure><img src="images/04.jpeg" alt="A PDP-7 computer"><figcaption>Photo of a PDP-7 computer, taken in 2005 by Tore Sinding Bekkedal, in Norway. (<a href="https://commons.wikimedia.org/wiki/File:Pdp7-oslo-2005.jpeg">https://commons.wikimedia.org/wiki/File:Pdp7-oslo-2005.jpeg</a>)</figcaption></figure>
+<p>Ken Thompson's project aroused the interest of his co-worker Dennis Ritchie, who joined the development.</p>
+<h4><strong>The creation of the C language and the rewriting of UNIX</strong></h4>
+<figure><img src="images/05.jpeg" alt="Cover of the book The C Programming Language"><figcaption>Cover of the book The C Programming Language, written by the creators of the language themselves</figcaption></figure>
+<p>The source code of UNIX, until then written in assembly language, was rewritten too often because, in order not to become obsolete, it had to be constantly adapted to new models of PDP computers. To solve this problem, Ken Thompson rewrote UNIX in a programming language he had created himself, called B. This attempt to make the UNIX system portable was not successful because of the problems and limitations of the B language.</p>
+<p>In a new attempt to make UNIX portable, Dennis Ritchie developed, based on the <strong>B</strong> language, a new programming language called <strong>C</strong>. It had improvements over its predecessor B.</p>
+<p>Unlike an algorithm written in assembly language, an algorithm written in C does not require as much work to be adapted from one computer architecture to another, since the C language has no syntactic or logical variations for each architecture. In addition, the C language is, syntactically and structurally, much more abstract than assembly languages, making it easier to develop and interpret algorithms.</p>
+<p>After the development of the first compiler for the C language, UNIX was largely rewritten from assembly language into C. From then on, UNIX became a portable system. It was possible to make it run on any computer system for which there was a C compiler, and this was one of the main factors that made UNIX a great revolution in the computing world.</p>
+<h3><strong>The main characteristics of UNIX</strong></h3>
+<h4>Differences in organization between MULTICS and UNIX</h4>
+<p>One of the most notable differences between MULTICS and UNIX is the way they are organized. In MULTICS, the functionalities were separated into <strong>protection rings</strong>, which were basically layers, each one with a different level of privilege over the control of the hardware. Only the functionalities of ring 0 ran with full privilege. In all “upper” rings, the system functionalities ran with fewer privileges. The goal of this organization was to have as few functionalities as possible running in supervisor mode. The file system, for example, ran in ring 1 instead of ring 0.</p>
+<p>UNIX, however, has a traditional monolithic organization. Most of the functionalities of the operating system, such as the file system and the device <em>drivers</em>, run “inside” the <em>kernel</em> itself, in privileged mode.</p>
+<h4><strong>Multi-user operation</strong></h4>
+<figure><img src="images/06.png" alt="Multi-user operation"></figure>
+<p>Like MULTICS, UNIX allows several users to use the same computer simultaneously, without the activity of one user interfering with that of another.</p>
+<h4><strong>Simultaneous processing</strong></h4>
+<figure><img src="images/07.png" alt="Simultaneous processing"></figure>
+<p>UNIX allows the user to run several tasks simultaneously, without having to interrupt one activity to start another.</p>
+<h4><strong>Modular design</strong></h4>
+<figure><img src="images/08.png" alt="Modular design"></figure>
+<p>UNIX has a modular architecture. It is structured in a way that allows the user to adapt it to their needs by removing or adding components without compromising its operation. It is thanks to this that <em>UNIX-like</em> systems are used today in the most diverse applications, from simple embedded systems to large <em>internet</em> servers.</p>
+<h4><strong>Portability</strong></h4>
+<p>This is probably one of the most innovative characteristics of UNIX. The UNIX system can be adapted to the most diverse computer systems without much effort, thanks to the use of the C language.</p>
+<h4><strong>Pipes</strong></h4>
+<p>This feature of the UNIX system allows processes to exchange information through <em>pipes</em>. The read and write operations on <em>pipes</em> are performed using <em>file descriptors</em> and the <em>read</em> and <em>write</em> system calls.</p>
+<h4><strong>Everything is a file</strong></h4>
+<p>In UNIX, all input and output operations of the system are done using <em>file descriptors</em> and the <em>read</em> and <em>write</em> system calls, the same ones used to read and write information in files.</p>
+<h3><strong>UNIX-like systems</strong></h3>
+<p>In its first versions, the source code of UNIX was freely distributed, allowing several institutions to contribute to its development. However, after some years of development, UNIX became commercial and stopped being <em>open-source</em>. From then on, several free operating systems similar to UNIX were developed, which are called “<em>UNIX-like</em> systems”, such as BSD and the <em>Linux-based</em> systems.</p>
+<h4><strong>BSD</strong></h4>
+<figure><img src="images/09.png" alt="BSD logo"></figure>
+<p>Back when Unix was still an open-source project, the source code of version 6 of the software was acquired by the University of California, Berkeley. With funding from ARPA (<em>Advanced Research Projects Agency</em>), of the United States Department of Defense, the BSD operating system (an acronym for <em>Berkeley Software Distribution</em>), based on the UNIX source code, was developed at the University of Berkeley. The binary code, as well as the source code of BSD, was freely distributed under the BSD license, a very permissive public license.</p>
+<p>Today there are several variants of BSD, such as FreeBSD, OpenBSD and NetBSD. Apple's current operating systems, OS X (used on the desktops and notebooks sold by the company) and iOS (used on iPhones), are partially based on BSD.</p>
+<figure><img src="images/10.png" alt="FreeBSD running on a virtual machine"><figcaption>Screenshot of FreeBSD running on a virtual machine</figcaption></figure>
+<h4><strong>MINIX</strong></h4>
+<figure><img src="images/11.png" alt="Minix 3 with graphical interface"><figcaption>Screenshot of Minix 3 with graphical interface</figcaption></figure>
+<p>MINIX is a UNIX-like operating system. It was developed by professor Andrew S. Tanenbaum for educational purposes. The source code of the system is used as supporting material for the book “Operating Systems: Design and Implementation”, written by Andrew S. Tanenbaum himself. The name MINIX is an acronym for “Mini UNIX”. It is intended for personal computers, especially IBM PCs.</p>
+<figure><img src="images/12.jpeg" alt="Cover of the book Operating Systems: Design and Implementation"><figcaption>Cover of the third edition of the book Operating Systems: Design and Implementation, by Andrew S. Tanenbaum (Brazilian edition)</figcaption></figure>
+<figure><img src="images/13.jpeg" alt="Andrew S. Tanenbaum"><figcaption>Andrew S. Tanenbaum at a presentation at linux.conf.au, in 2007</figcaption></figure>
+<p>The source code of MINIX is relatively simple. It is classified as a <strong>micro<em>kernel</em></strong> system for having a reduced <em>kernel</em>, which serves only for the most basic activities, such as process scheduling and main memory management. All drivers and file systems are <em>daemons</em>, which run “above the <em>kernel</em>”, as user programs. In contrast to microkernel systems, there are monolithic <em>kernel</em> systems, in which drivers and file systems run as part of the <em>kernel</em>. Tanenbaum argues that microkernel systems are more robust and secure than monolithic <em>kernel</em> systems.</p>
+<h4><strong>GNU/Linux</strong></h4>
+<figure><img src="images/14.png" alt="GNU and Linux symbols"><figcaption>On the left, the symbol of the GNU project. On the right, Tux the penguin, the symbol of Linux.</figcaption></figure>
+<p>In 1989, the Finnish student Linus Torvalds decided to create his own operating system <em>kernel</em> based on MINIX: Linux. Initially, Linus had no intention of making Linux a big project. However, Linux aroused a lot of interest in the MINIX user community (especially those who were dissatisfied with Tanenbaum's resistance to improvements in MINIX), because Linus's project had no educational purposes and could be improved without concern for didactics.</p>
+<figure><img src="images/15.jpeg" alt="Linus Torvalds"><figcaption>Linus Torvalds at LinuxCon Europe 2014, in Düsseldorf</figcaption></figure>
+<p>Tanenbaum often received requests from users over the internet for new features and improvements to be added to MINIX. In order to keep the source code of MINIX simple and easy to understand, Tanenbaum almost always refused the requests, which caused some dissatisfaction in the user community of his system.</p>
+<p>Soon Linux started being developed by many people around the world, gaining many features and becoming a powerful piece of software. Later, the Linux <em>kernel</em> became part of Richard Stallman's GNU project, whose goal was to create a complete and totally free operating system, distributed under the GPL license (which, despite being a free software license, has its restrictions). The integration of the Linux <em>kernel</em> into the GNU project gave rise to the GNU/Linux operating system, which is the basis of a large family of operating systems. Among them are the Debian, Slackware, Arch, Red Hat, Ubuntu and Fedora distributions, among many others. Google's popular mobile operating system, Android, is also based on the Linux <em>kernel</em>.</p>
+<figure><img src="images/16.jpeg" alt="Richard Stallman"><figcaption>Richard Stallman in Spain, at the Walqa Technology Park, in March 2011</figcaption></figure>
+<p>In contrast to MINIX, Linux-based operating systems are classified as monolithic <em>kernel</em> systems, since a significant part of their features is concentrated in the Linux <em>kernel</em>.</p>
+<h4><strong>References</strong></h4>
+<p>TANENBAUM, Andrew S. <strong>Sistemas Operacionais Modernos</strong> (Modern Operating Systems). 3rd Edition. São Paulo: PEARSON, November 2010.</p>
+<p>L. STUART, Brian. <strong>Princípios de Sistemas Operacionais</strong>: Projetos e Aplicações (Operating Systems: Principles, Design, and Applications). Translation: All Tasks. São Paulo: Cengage Learning, 2011. ISBN 978–85–221–0733–9.</p>
+<p>THOMAS, Rebeca; YETES, Jean. <strong>UNIX TOTAL.</strong> São Paulo: McGraw-Hill, 1989.</p>
+<p>GROFF, James R.; WEINBERG, Paul N. <strong>Sistema Operacional Unix</strong>: Um guia conceitual (Understanding UNIX: A Conceptual Guide). São Paulo: EBRAS, 1986.</p>
+
+		</div>
+
+		<div class="mt-5">
+			<a href="../../index.html">&larr; Back to all contents</a>
+		</div>
+	</div>
+</article>
+
+
+	    <footer class="footer text-center py-2 theme-bg-dark">
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+	    </footer>
+
+    </div><!--//main-wrapper-->
+       
+    <!-- Javascript -->          
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+	
+	
+</body>
+</html> 

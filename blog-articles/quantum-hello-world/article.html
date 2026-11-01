@@ -1,0 +1,45 @@
+<p>In the previous articles of CQ em Português (<a href="../qubits/"><strong>Qubits</strong></a> and <a href="../quantum-logic-gates/"><strong>Quantum Logic Gates</strong></a>), some basic and theoretical concepts of quantum computing were presented. In this article, we will move on to a more practical, yet equally basic, approach, using the <strong><em>Python</em></strong> language and the <strong>Qiskit</strong> SDK. The practical exercise taught here is the generation of a <strong>Bell state</strong> which, as already explained in the article about <em>qubits</em>, is a state of two entangled <em>qubits</em> (Eq. 1).</p>
+<figure><img src="images/01.png" alt="Definition of a Bell state"><figcaption>Eq. 1 — Definition of a Bell state</figcaption></figure>
+<p>A Bell state can be generated with a Hadamard gate and a Controlled-NOT gate, as shown in the following figure:</p>
+<figure><img src="images/02.png" alt="Quantum circuit that generates the Bell state"><figcaption>Fig. 1 — Quantum circuit that generates the Bell state</figcaption></figure>
+<p>This quantum circuit can be represented algebraically as follows:</p>
+<figure><img src="images/03.png" alt="Reduced algebraic representation of the quantum circuit of fig. 1"><figcaption>Eq. 2 — Reduced algebraic representation of the quantum circuit of fig. 1</figcaption></figure>
+<p>where <strong><em>Cx</em></strong> corresponds to the <em>Controlled-NOT</em> gate, <strong><em>H</em></strong> corresponds to the <em>Hadamard</em> gate and <strong><em>I</em></strong> corresponds to a 2x2 identity matrix.</p>
+<h3>Implementation and simulation of the quantum circuit of fig. 1 with Qiskit</h3>
+<p>Qiskit is currently one of the main development tools for quantum computing. This powerful SDK contains resources for the manipulation, transpilation, simulation and execution of quantum algorithms, and also includes a large collection of “<em>helpers</em>” for the implementation of quantum and hybrid algorithms for optimization, <em>machine learning</em>, arithmetic, chemistry, etc.</p>
+<p>Qiskit is cross-platform and its installation process is quite simple: just type “<em>pip install qiskit</em>” in the terminal.</p>
+<h4>First step — importing Qiskit</h4>
+<p>Use the “<em>import qiskit</em>” command to load the resources of the Qiskit library.</p>
+<pre>import qiskit</pre>
+<h4>Second step — creating the registers</h4>
+<p>For this exercise, it is necessary to create a quantum register of 2 <em>qubits</em> and a classical register of 2 <em>bits</em>. This can be done with the following code snippet:</p>
+<pre>qr = qiskit.QuantumRegister(2)<br>cr = qiskit.ClassicalRegister(2)</pre>
+<h4>Third step — building the quantum circuit</h4>
+<p>To build the quantum circuit shown in fig. 1, it is first necessary to create a <em>QuantumCircuit</em> object with both registers included.</p>
+<pre>qc = qiskit.QuantumCircuit(qr, cr)</pre>
+<p>After creating the <em>QuantumCircuit</em> object, use the <strong><em>h</em></strong> and <strong><em>cx</em></strong> methods to add the <em>Hadamard</em> and <em>Controlled-NOT</em> gates to the circuit.</p>
+<pre>qc.h(qr[0]) #Adds a Hadamard gate on qubit 0<br>qc.cx(qr[0], qr[1]) #Adds a Controlled-NOT gate with qubit 0 as control and qubit 1 as target</pre>
+<p>To complete the construction of the circuit, it is necessary to add measurement gates. These gates are responsible for measuring the state of the quantum register and storing the result in the classical register (remember what was said about the collapse of the quantum state in the article about <em>qubits</em>). To add these gates, use the <strong><em>measure</em></strong> method.</p>
+<pre>qc.measure(qr, cr)</pre>
+<p>It is possible to visualize the built circuit with the <strong><em>draw</em></strong> method. If you have the <strong><em>matplotlib</em></strong> library installed, use the following code snippet:</p>
+<pre>import matplotlib.pyplot as plt<br><br>qc.draw(output=&#39;mpl&#39;)<br>plt.show()</pre>
+<p>The result is this figure:</p>
+<figure><img src="images/04.png" alt="Circuit built with Qiskit"><figcaption>Fig. 2 — Circuit built with Qiskit</figcaption></figure>
+<h4>Fourth step — simulation</h4>
+<p>The Qiskit SDK has a simulator called <strong><em>Aer</em></strong>. There is a small set of simulation methods available in <strong><em>Aer</em></strong>, each one with its advantages and disadvantages. For this exercise, I chose the <strong><em>statevector</em></strong> method.</p>
+<p>To load the simulator, use the following line of code:</p>
+<pre>sim = qiskit.Aer.get_backend(&#39;aer_simulator_statevector&#39;)</pre>
+<p>To run the simulation, use the <strong><em>run</em></strong> method of the simulator. This method returns an <strong><em>AerJob</em></strong> object.</p>
+<pre>job = sim.run(qc, shots=1024)</pre>
+<p>Note that there is a “<strong><em>shots</em></strong>” argument in the <strong><em>run</em></strong> method. This argument specifies the number of times the quantum circuit is executed.</p>
+<p>To get the simulation results, use the <strong><em>result</em></strong> method of the <strong><em>AerJob</em></strong> class. This method returns a <strong><em>Result</em></strong> object containing several pieces of information about the simulation.</p>
+<pre>res = job.result()</pre>
+<p>To get the measurements of the final state of the quantum circuit, use the <strong><em>get_counts</em></strong> method of the <strong><em>Result</em></strong> class. This method returns a <em>dict</em> containing the <em>bit-strings</em> obtained in the simulation, each one with its respective frequency.</p>
+<pre>counts = res.get_counts()<br><br>print(counts)<br>#Output: {&#39;00&#39;: 530, &#39;11&#39;: 494}</pre>
+<p>Note that, in this simulation, the bit sequence “00” was obtained 530 times and the sequence “11” was obtained 494 times.</p>
+<p>Using the <em>Matplotlib</em> library (already imported) and the Qiskit <strong><em>plot_histogram</em></strong> function, it is possible to turn this <em>dict</em> into a histogram.</p>
+<pre>from qiskit.tools.visualization import plot_histogram<br><br>plot_histogram(counts)<br>plt.show()</pre>
+<p>The result is the following figure:</p>
+<figure><img src="images/05.png" alt="Histogram of the simulation results"></figure>
+<h4>Interpretation of the result</h4>
+<p>The Bell state is formed by a linear combination of two pure states: <em>|00&gt;</em> and <em>|11&gt;</em>. Theoretically, the probabilities of the Bell state collapsing into <em>|00&gt;</em> and <em>|11&gt;</em> are equal, that is, both are <em>1/2</em>. In the simulation, the relative frequencies obtained were <em>530/1024=0.52</em> and <em>494/1024=0.48</em>. By the law of large numbers, the larger the number of simulation <em>shots</em>, the closer to <em>1/2</em> these relative frequencies will be. However, it is worth pointing out that the <em>statevector</em> simulation method is <strong>ideal</strong>, that is, it does not take into account the noise of a real quantum computer.</p>

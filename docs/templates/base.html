@@ -7,22 +7,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get to know my projects, studies, and experiments in science, technology, and programming.">
+    <meta name="description" content="{% block page_description %}Get to know my projects, studies, and experiments in science, technology, and programming.{% endblock %}">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.svg"> 
+    <link rel="shortcut icon" href="{{root}}favicon.svg"> 
+    {% block head_extra %}{% endblock %}
     
     <!-- FontAwesome JS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     
     <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
+    <link id="theme-style" rel="stylesheet" href="{{root}}assets/css/theme-1.css">
 </head> 
 
 <body>
     <header class="header text-center">
 		<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
-			<h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Filipe Chagas Ferraz</a></h1>
+			<h1 class="blog-name pt-lg-4 mb-0"><a href="{{root}}index.html">Filipe Chagas Ferraz</a></h1>
 		</div>
 
 	    <nav class="navbar navbar-expand-lg navbar-dark" >
@@ -34,12 +35,12 @@
 			<div id="navigation" class="navbar-collapse flex-column">
 				<div class="profile-section pt-3 pt-lg-0">
 					<div class="d-none d-md-block"> <!-- Visible only in medium or large screens -->
-				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="assets/images/profile.jpg" alt="image" >			
+				    	<img class="profile-image mb-3 mt-4 rounded-circle mx-auto" src="{{root}}assets/images/profile.jpg" alt="image" >			
 					</div>
 					<div class="d-block d-md-none">
 						<div class="align-items-center">
 							<h6 class="mb-0 pt-lg-4" style="color: white;">Filipe Chagas Ferraz</h2>
-							<img class="profile-image-small m-3 rounded-circle mx-auto" src="assets/images/profile.jpg" alt="image" >	
+							<img class="profile-image-small m-3 rounded-circle mx-auto" src="{{root}}assets/images/profile.jpg" alt="image" >	
 						</div>
 					</div>
 					<div class="bio mb-3">
@@ -82,6 +83,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 	{% block script_section %}{% endblock %}
+	{% if goatcounter %}
+	<script data-goatcounter="https://{{goatcounter}}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+	{% endif %}
 </body>
 </html> 
 

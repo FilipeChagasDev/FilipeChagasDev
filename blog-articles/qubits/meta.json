@@ -1,6 +1,6 @@
 {
     "title": "Qubits, the Bits of Quantum Computing",
-    "abstract": "Qubits are to quantum computing what bits are to classical computing. This article (in Portuguese) first discusses how information is represented classically, with bits, and then explains qubits and quantum information, covering qubit states, the Bloch sphere, phase, quantum registers and entangled qubits.",
+    "abstract": "Qubits are to quantum computing what bits are to classical computing. This article (originally written in Portuguese) first discusses how information is represented classically, with bits, and then explains qubits and quantum information, covering qubit states, the Bloch sphere, phase, quantum registers and entangled qubits.",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/qubits/thumbnail.png?raw=true",
     "href": "https://medium.com/cq-em-portugu%C3%AAs/do-bit-ao-qubit-113975dca0f9",
     "contenttype": "Blog Article",
