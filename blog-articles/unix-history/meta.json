@@ -1,8 +1,8 @@
 {
-    "title": "UNIX, o pai dos sistemas operacionais modernos",
-    "abstract": "First released in 1969, UNIX is known to this day as one of the most important operating systems in history. This article (in Portuguese) tells the history of UNIX, from its MULTICS origins to its rewriting in the C language, and presents its main features, such as multi-user operation, simultaneous processing, modular design, portability, pipes and the \"everything is a file\" philosophy, and its influence on UNIX-like systems such as BSD, MINIX and Linux.",
+    "title": "UNIX, the Father of Modern Operating Systems",
+    "abstract": "First released in 1969, UNIX is known to this day as one of the most important operating systems in history. This article (originally written in Portuguese) tells the history of UNIX, from its MULTICS origins to its rewriting in the C language, and presents its main features, such as multi-user operation, simultaneous processing, modular design, portability, pipes and the \"everything is a file\" philosophy, and its influence on UNIX-like systems such as BSD, MINIX and Linux.",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/unix-history/thumbnail.png?raw=true",
-    "href": "https://medium.com/programadores-ajudando-programadores/a-hist%C3%B3ria-do-unix-o-pai-dos-sistemas-operacionais-modernos-2795d0fd564b",
+    "href": "https://medium-com.translate.goog/programadores-ajudando-programadores/a-hist%C3%B3ria-do-unix-o-pai-dos-sistemas-operacionais-modernos-2795d0fd564b?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en",
     "contenttype": "Blog Article",
     "contentsubtype": null,
     "contenttopic": ["Operating Systems", "History of Computing"],

@@ -1,8 +1,8 @@
 {
-    "title": "Grafos e algoritmos",
-    "abstract": "Graphs are present in much of computer science, being a perfectly computable abstraction for many relations of reality and of human imagination. This article (in Portuguese) introduces the mathematical theory of graphs (digraphs, weighted graphs, subgraphs, cycles, etc.), the data structures used to represent them, and graph algorithms such as search algorithms and the Dijkstra shortest path algorithm.",
+    "title": "Graphs and Algorithms",
+    "abstract": "Graphs are present in much of computer science, being a perfectly computable abstraction for many relations of reality and of human imagination. This article (originally written in Portuguese) introduces the mathematical theory of graphs (digraphs, weighted graphs, subgraphs, cycles, etc.), the data structures used to represent them, and graph algorithms such as search algorithms and the Dijkstra shortest path algorithm.",
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/blog-articles/graphs-and-algorithms/thumbnail.png?raw=true",
-    "href": "https://medium.com/programadores-ajudando-programadores/os-grafos-e-os-algoritmos-697c1fd4a416",
+    "href": "https://medium-com.translate.goog/programadores-ajudando-programadores/os-grafos-e-os-algoritmos-697c1fd4a416?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en",
     "contenttype": "Blog Article",
     "contentsubtype": null,
     "contenttopic": ["Graph Theory", "Algorithms"],
