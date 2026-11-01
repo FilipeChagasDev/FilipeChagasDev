@@ -4,7 +4,8 @@
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true",
     "href": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/traveling-salesman-sa-tutorial.ipynb",
     "contenttype": "Python Notebook",
-    "contenttopic": "Operations Research",
+    "contentsubtype": "Educational",
+    "contenttopic": ["Operations Research", "Optimization"],
     "date": {
         "day": 3,
         "month": 11,

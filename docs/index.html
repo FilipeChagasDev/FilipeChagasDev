@@ -104,7 +104,7 @@ Filipe Chagas Ferraz Website
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="filterContentType('Paper')">
+				<a class="nav-link" href="#" onclick="filterContentType('Paper (main author)')">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 						class="bi bi-file-earmark-text" viewBox="0 0 16 16">
 						<path
@@ -112,7 +112,31 @@ Filipe Chagas Ferraz Website
 						<path
 							d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
 					</svg>
-					Papers
+					Papers (main author)
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="filterContentType('Paper (coauthor)')">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+						class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+						<path
+							d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+						<path
+							d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+					</svg>
+					Papers (coauthor)
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="filterContentType('Academic Work')">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+						class="bi bi-mortarboard" viewBox="0 0 16 16">
+						<path
+							d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917zM8 8.46 1.758 5.965 8 3.052l6.242 2.913z" />
+						<path
+							d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46z" />
+					</svg>
+					Academic Works
 				</a>
 			</li>
 			<!--
@@ -136,14 +160,18 @@ Filipe Chagas Ferraz Website
 	<div class="container" id="posts">
 		
 		<div class="item mb-5 post" contenttype="Web App"
-			contenttopic="Quantum Computing">
+			contenttopic="Quantum Computing; Quantum Communication">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/superdense-coding-sim/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://superdense-coding-sim.streamlit.app/">Superdense Coding Simulator</a></h3>
 					<div class="meta mb-1">
 						<span>Web App</span>
-						<span class="time">Quantum Computing</span>
+						
+						<span>Educational</span>
+						
+						<span class="time">Quantum Computing; Quantum Communication</span>
+						
 						<span>12-May-2026</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -156,14 +184,18 @@ Filipe Chagas Ferraz Website
 		</div><!--//item-->
 		
 		<div class="item mb-5 post" contenttype="Python Notebook"
-			contenttopic="Machine Learning">
+			contenttopic="Machine Learning; Neural Networks">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/hopfield-network/hopfield_network_thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/hopfield-network/hopfield_network_filipe_2.ipynb">Remembering handwritten digits with a Hopfield Network</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
-						<span class="time">Machine Learning</span>
+						
+						<span>Educational</span>
+						
+						<span class="time">Machine Learning; Neural Networks</span>
+						
 						<span>16-Mar-2025</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -176,14 +208,18 @@ Filipe Chagas Ferraz Website
 		</div><!--//item-->
 		
 		<div class="item mb-5 post" contenttype="Web App"
-			contenttopic="Operations Reseach">
+			contenttopic="Operations Research; Optimization">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/samsa/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://samsa-rcp8.onrender.com">SAMSA</a></h3>
 					<div class="meta mb-1">
 						<span>Web App</span>
-						<span class="time">Operations Reseach</span>
+						
+						<span>Educational</span>
+						
+						<span class="time">Operations Research; Optimization</span>
+						
 						<span>24-Nov-2024</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -196,14 +232,18 @@ Filipe Chagas Ferraz Website
 		</div><!--//item-->
 		
 		<div class="item mb-5 post" contenttype="Python Notebook"
-			contenttopic="Operations Research">
+			contenttopic="Operations Research; Optimization">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/tsp-aco-thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/ant-colony-notebook/notebooks/ant-colony-optimization/ant-colony-tutorial.ipynb">Solving the Traveling Salesman Problem with Ant Colony Optimization</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
-						<span class="time">Operations Research</span>
+						
+						<span>Educational</span>
+						
+						<span class="time">Operations Research; Optimization</span>
+						
 						<span>09-Nov-2024</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -216,14 +256,18 @@ Filipe Chagas Ferraz Website
 		</div><!--//item-->
 		
 		<div class="item mb-5 post" contenttype="Python Notebook"
-			contenttopic="Operations Research">
+			contenttopic="Operations Research; Optimization">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/tsp-sa-thumbnail.gif?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/traveling-salesman/traveling-salesman-sa-tutorial.ipynb">Solving the Traveling Salesman Problem with Simulated Annealing</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
-						<span class="time">Operations Research</span>
+						
+						<span>Educational</span>
+						
+						<span class="time">Operations Research; Optimization</span>
+						
 						<span>03-Nov-2024</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -243,7 +287,11 @@ Filipe Chagas Ferraz Website
 					<h3 class="title mb-1"><a target="_blank" href="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/notebooks/seam-carving/seam-carving-tutorial.ipynb">Smart image cropping with Seam Carving (tutorial)</a></h3>
 					<div class="meta mb-1">
 						<span>Python Notebook</span>
+						
+						<span>Educational</span>
+						
 						<span class="time">Image Processing</span>
+						
 						<span>02-Nov-2024</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -255,15 +303,47 @@ Filipe Chagas Ferraz Website
 			</div><!--//media-->
 		</div><!--//item-->
 		
-		<div class="item mb-5 post" contenttype="Paper"
-			contenttopic="Machine Learning">
+		<div class="item mb-5 post" contenttype="Academic Work"
+			contenttopic="Quantum Computing; Programming Languages">
+			<div class="media">
+				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/academic-works/dlq-quantum-programming-language/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
+				<div class="media-body">
+					<h3 class="title mb-1"><a target="_blank" href="https://bdm.ufmt.br/handle/1/3271">DLQ - Projeto de linguagem de programação de alto nível de abstração para computação quântica</a></h3>
+					<div class="meta mb-1">
+						<span>Academic Work</span>
+						
+						<span>Bachelor's Thesis</span>
+						
+						<span class="time">Quantum Computing; Programming Languages</span>
+						
+						<span>Federal University of Mato Grosso (UFMT)</span>
+						
+						<span>09-Jun-2023</span>
+					</div>
+					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
+						<img class="img-fluid post-thumb-2 d-block d-md-none" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/academic-works/dlq-quantum-programming-language/thumbnail.png?raw=true" alt="image"> <!--Visible only in smartphones -->
+					</div>
+					<div class="intro">In this end-of-course work, a declarative programming language was developed, with a high level of abstraction and easy to learn, for the programming of quantum computers. The language, baptized as DLQ (Declarative Language for Quantum), has as main elements: numerical variables; arithmetic, logical and relational operators; and finally, terminator statements. Throughout this paper, the quantum circuits corresponding to each of these elements, the grammar of the language, and the process of compiling the codes are explained in detail. Code examples in the language and final considerations about the work done are presented in the last chapters.</div>
+					<a class="more-link" target="_blank" href="https://bdm.ufmt.br/handle/1/3271">Read more &rarr;</a>
+				</div><!--//media-body-->
+			</div><!--//media-->
+		</div><!--//item-->
+		
+		<div class="item mb-5 post" contenttype="Paper (main author)"
+			contenttopic="Machine Learning; Signal Processing">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/papers/siamese-cnn-knn-nilm/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://link.springer.com/article/10.1007/s40313-023-00999-2">A Siamese CNN + KNN-Based Classification Framework for Non-intrusive Load Monitoring</a></h3>
 					<div class="meta mb-1">
-						<span>Paper</span>
-						<span class="time">Machine Learning</span>
+						<span>Paper (main author)</span>
+						
+						<span>Original Research Journal Article</span>
+						
+						<span class="time">Machine Learning; Signal Processing</span>
+						
+						<span>Federal University of Mato Grosso (UFMT)</span>
+						
 						<span>01-May-2023</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">
@@ -275,15 +355,19 @@ Filipe Chagas Ferraz Website
 			</div><!--//media-->
 		</div><!--//item-->
 		
-		<div class="item mb-5 post" contenttype="Paper"
+		<div class="item mb-5 post" contenttype="Paper (main author)"
 			contenttopic="Quantum Computing">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/papers/qft-register-by-constant-addition/thumbnail.png?raw=true" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="https://arxiv.org/abs/2207.05309">Quantum Algorithm based on Quantum Fourier Transform for Register-by-Constant Addition</a></h3>
 					<div class="meta mb-1">
-						<span>Paper</span>
+						<span>Paper (main author)</span>
+						
+						<span>Theoretical Study Preprint</span>
+						
 						<span class="time">Quantum Computing</span>
+						
 						<span>12-Jul-2022</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">

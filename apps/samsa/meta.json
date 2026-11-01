@@ -4,7 +4,8 @@
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/samsa/thumbnail.png?raw=true",
     "href": "https://samsa-rcp8.onrender.com",
     "contenttype": "Web App",
-    "contenttopic": "Operations Reseach",
+    "contentsubtype": "Educational",
+    "contenttopic": ["Operations Research", "Optimization"],
     "date": {
         "day": 24,
         "month": 11,

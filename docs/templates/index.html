@@ -38,7 +38,7 @@ Filipe Chagas Ferraz Website
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#" onclick="filterContentType('Paper')">
+				<a class="nav-link" href="#" onclick="filterContentType('Paper (main author)')">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 						class="bi bi-file-earmark-text" viewBox="0 0 16 16">
 						<path
@@ -46,7 +46,31 @@ Filipe Chagas Ferraz Website
 						<path
 							d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
 					</svg>
-					Papers
+					Papers (main author)
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="filterContentType('Paper (coauthor)')">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+						class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+						<path
+							d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+						<path
+							d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+					</svg>
+					Papers (coauthor)
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" onclick="filterContentType('Academic Work')">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+						class="bi bi-mortarboard" viewBox="0 0 16 16">
+						<path
+							d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917zM8 8.46 1.758 5.965 8 3.052l6.242 2.913z" />
+						<path
+							d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46z" />
+					</svg>
+					Academic Works
 				</a>
 			</li>
 			<!--
@@ -70,14 +94,20 @@ Filipe Chagas Ferraz Website
 	<div class="container" id="posts">
 		{% for post in posts %}
 		<div class="item mb-5 post" contenttype="{{post.contenttype}}"
-			contenttopic="{{post.contenttopic}}">
+			contenttopic="{{post.contenttopic | join('; ')}}">
 			<div class="media">
 				<img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{post.thumbnail}}" alt="image"> <!--Visible only in large screens-->
 				<div class="media-body">
 					<h3 class="title mb-1"><a target="_blank" href="{{post.href}}">{{post.title}}</a></h3>
 					<div class="meta mb-1">
 						<span>{{post.contenttype}}</span>
-						<span class="time">{{post.contenttopic}}</span>
+						{% if post.contentsubtype is string %}
+						<span>{{post.contentsubtype}}</span>
+						{% endif %}
+						<span class="time">{{post.contenttopic | join('; ')}}</span>
+						{% if post.institution is string %}
+						<span>{{post.institution}}</span>
+						{% endif %}
 						<span>{{post.date_str}}</span>
 					</div>
 					<div class="d-flex justify-content-center align-items-center p-3 d-block d-md-none">

@@ -1,0 +1,16 @@
+{
+    "title": "DLQ - Projeto de linguagem de programação de alto nível de abstração para computação quântica",
+    "abstract": "In this end-of-course work, a declarative programming language was developed, with a high level of abstraction and easy to learn, for the programming of quantum computers. The language, baptized as DLQ (Declarative Language for Quantum), has as main elements: numerical variables; arithmetic, logical and relational operators; and finally, terminator statements. Throughout this paper, the quantum circuits corresponding to each of these elements, the grammar of the language, and the process of compiling the codes are explained in detail. Code examples in the language and final considerations about the work done are presented in the last chapters.",
+    "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/academic-works/dlq-quantum-programming-language/thumbnail.png?raw=true",
+    "href": "https://bdm.ufmt.br/handle/1/3271",
+    "contenttype": "Academic Work",
+    "contentsubtype": "Bachelor's Thesis",
+    "contenttopic": ["Quantum Computing", "Programming Languages"],
+    "institution": "Federal University of Mato Grosso (UFMT)",
+    "date": {
+        "day": 9,
+        "month": 6,
+        "year": 2023
+    },
+    "relevance": 0
+}

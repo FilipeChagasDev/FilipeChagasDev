@@ -4,7 +4,8 @@
     "thumbnail": "https://github.com/FilipeChagasDev/FilipeChagasDev/blob/main/apps/superdense-coding-sim/thumbnail.png?raw=true",
     "href": "https://superdense-coding-sim.streamlit.app/",
     "contenttype": "Web App",
-    "contenttopic": "Quantum Computing",
+    "contentsubtype": "Educational",
+    "contenttopic": ["Quantum Computing", "Quantum Communication"],
     "date": {
         "day": 12,
         "month": 5,
